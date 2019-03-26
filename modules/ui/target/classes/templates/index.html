@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kvitter</title>
+</head>
+<head th:replace="fragments/head :: head"></head>
+
+<body>
+
+<div th:switch="${authorize.getIsAuthorized()}">
+    <div th:case="false">
+        <div th:replace="fragments/nav :: publicnav"></div>
+    </div>
+    <div th:case="true">
+        <div modelAttribute="user"
+             th:replace="fragments/nav :: privatenav (username=${user.firstName}+' '+${user.lastName}, roles=${user.roles})"></div>
+    </div>
+</div>
+
+<div class="test">
+    <h1>Hei</h1>
+</div>
+</body>
+</html>

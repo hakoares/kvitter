@@ -2,39 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23a08cfd-29f4-412d-9a52-b1c4acbe9878" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/controller/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/model/Roles.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/model/Tweet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/service/Authorize.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/service/LoginServices.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/service/UserServices.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/ui/src/main/resources/static/css/Main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/ui/src/main/resources/templates/fragments/head.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/ui/src/main/resources/templates/fragments/nav.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/ui/src/main/resources/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/ui/src/main/resources/templates/signin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/ui/src/main/resources/templates/signup.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/tweets/src/main/java/app/hakon/tweets/controller/RestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/tweets/src/main/java/app/hakon/tweets/model/Tweet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/tweets/src/main/java/app/hakon/tweets/repository/TweetRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/tweets/src/main/java/app/hakon/tweets/service/TweetService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/service/TweetService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/ui/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/ui/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/ui/target/classes/templates/fragments/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui/target/classes/templates/fragments/head.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/ui/target/classes/templates/fragments/nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui/target/classes/templates/fragments/nav.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/ui/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui/target/classes/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/ui/target/classes/templates/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui/target/classes/templates/signin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/ui/target/classes/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/modules/ui/target/classes/templates/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/modules/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/src/main/java/app/hakon/tweets/ServletInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/src/main/java/app/hakon/tweets/TweetsApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/src/test/java/app/hakon/tweets/TweetsApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ui/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ui/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ui/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ui/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ui/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ui/src/main/resources/static/css/Main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/ui/src/test/java/app/hakon/ui/UiApplicationTests.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/modules/ui/target/" />
     <ignored path="$PROJECT_DIR$/models/database/target/" />
     <ignored path="$PROJECT_DIR$/modules/database/target/" />
+    <ignored path="$PROJECT_DIR$/tweets/target/" />
+    <ignored path="$PROJECT_DIR$/modules/target/" />
+    <ignored path="$PROJECT_DIR$/modules/tweets/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,53 +42,24 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.8230227">
-      <split-first>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/modules/ui/src/main/resources/templates/signin.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="450">
-                  <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules/ui/src/main/resources/templates/signup.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="248">
-                  <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="36" selection-end-column="18" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/model/User.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="154">
-                  <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/model/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="34" column="31" lean-forward="true" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -99,12 +70,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/model/Tweet.java" />
         <option value="$PROJECT_DIR$/modules/ui/src/main/resources/templates/fragments/index.html" />
         <option value="$PROJECT_DIR$/modules/ui/src/main/resources/templates/fragments/nav.html" />
         <option value="$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/model/Roles.java" />
         <option value="$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/service/Authorize.java" />
-        <option value="$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/model/User.java" />
         <option value="$PROJECT_DIR$/modules/ui/src/main/resources/static/public.css/main.css" />
         <option value="$PROJECT_DIR$/modules/ui/src/main/resources/static/public/css.main.css" />
         <option value="$PROJECT_DIR$/modules/ui/src/main/resources/static/css/main.css" />
@@ -122,6 +91,15 @@
         <option value="$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/service/UserServices.java" />
         <option value="$PROJECT_DIR$/modules/ui/src/main/resources/templates/signup.html" />
         <option value="$PROJECT_DIR$/modules/ui/src/main/resources/templates/signin.html" />
+        <option value="$PROJECT_DIR$/modules/tweets/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/modules/tweets/src/main/java/app/hakon/tweets/controller/RestController.java" />
+        <option value="$PROJECT_DIR$/modules/tweets/src/main/java/app/hakon/tweets/model/Tweet.java" />
+        <option value="$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/model/User.java" />
+        <option value="$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/model/Tweet.java" />
+        <option value="$PROJECT_DIR$/modules/tweets/src/main/java/app/hakon/tweets/repository/TweetRepository.java" />
+        <option value="$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/service/TicketService.java" />
+        <option value="$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/service/TweetService.java" />
+        <option value="$PROJECT_DIR$/modules/tweets/src/main/java/app/hakon/tweets/service/TweetService.java" />
       </list>
     </option>
   </component>
@@ -145,10 +123,9 @@
     <option name="jreName" value="1.8" />
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="6" />
-    <option name="y" value="23" />
+    <option name="y" value="34" />
     <option name="width" value="1680" />
-    <option name="height" value="990" />
+    <option name="height" value="977" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -176,7 +153,136 @@
               <item name="kvitter" type="b2602c69:ProjectViewProjectNode" />
               <item name="kvitter" type="462c0819:PsiDirectoryNode" />
               <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="tweets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kvitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kvitter" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="tweets" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kvitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kvitter" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="tweets" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kvitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kvitter" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="tweets" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kvitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kvitter" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="tweets" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="tweets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kvitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kvitter" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="tweets" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="tweets" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kvitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kvitter" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="tweets" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="tweets" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kvitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kvitter" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="tweets" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="tweets" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kvitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kvitter" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="tweets" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="tweets" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kvitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kvitter" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kvitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kvitter" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kvitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kvitter" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kvitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kvitter" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kvitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kvitter" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kvitter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kvitter" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -192,7 +298,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553609103433" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553613656170" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -209,6 +315,7 @@
       <recent name="$PROJECT_DIR$/modules/ui/src/main/resources/templates/fragments" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="app.hakon.tweets.model" />
       <recent name="app.hakon.ui.config" />
       <recent name="app.hakon.ui.service" />
       <recent name="app.hakon.ui.model" />
@@ -235,9 +342,9 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.UiApplication">
-    <configuration name="DatabaseApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="database (1)" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="app.hakon.database.DatabaseApplication" />
+    <configuration name="TweetsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="tweets" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="app.hakon.tweets.TweetsApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -249,6 +356,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Spring Boot.TweetsApplication" />
+      <item itemvalue="Spring Boot.UiApplication" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -260,15 +371,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1553588140827</updated>
-      <workItem from="1553588142091" duration="12168000" />
+      <workItem from="1553588142091" duration="16143000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12168000" />
+    <option name="totallyTimeSpent" value="16143000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" />
       <window_info id="Image Layers" />
@@ -277,7 +389,7 @@
       <window_info id="Favorites" side_tool="true" />
       <window_info id="Persistence" side_tool="true" />
       <window_info id="Web" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1898657" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20695971" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Spring" />
       <window_info anchor="bottom" id="Terminal" />
@@ -287,10 +399,10 @@
       <window_info anchor="bottom" id="Java Enterprise" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Messages" weight="0.3291536" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.18077324" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.28213167" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -306,6 +418,43 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Persistence" order="0" side_tool="true" />
+      <window_info id="Designer" order="1" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Web" order="6" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="7" visible="true" weight="0.20695971" />
+      <window_info id="Structure" order="8" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Spring" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="1" />
+      <window_info anchor="bottom" id="Docker" order="2" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Statistic" order="4" />
+      <window_info anchor="bottom" id="Java Enterprise" order="5" />
+      <window_info anchor="bottom" id="Database Changes" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.3291536" />
+      <window_info anchor="bottom" id="Message" order="9" />
+      <window_info anchor="bottom" id="Find" order="10" />
+      <window_info anchor="bottom" id="Run" order="11" visible="true" weight="0.28213167" />
+      <window_info anchor="bottom" id="Debug" order="12" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="13" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="14" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="15" />
+      <window_info anchor="right" id="Palette" order="0" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Maven" order="2" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Bean Validation" order="6" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="7" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="8" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="9" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -352,13 +501,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/UiApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/ui/src/main/resources/templates/fragments/nav.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
@@ -400,26 +542,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/model/Tweet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/controller/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -454,16 +576,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/service/Authorize.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="34" column="25" lean-forward="true" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/service/LoginServices.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="404">
@@ -484,24 +596,117 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/ui/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/ui/src/main/resources/templates/signup.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
+        <state relative-caret-position="450">
           <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="36" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/ui/src/main/resources/templates/signin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+        <state relative-caret-position="360">
+          <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/ui/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="34" selection-end-line="26" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/tweets/src/main/java/app/hakon/tweets/controller/RestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/tweets/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="16" lean-forward="true" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/service/Authorize.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/UiApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#304#305#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/model/Tweet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="25" column="33" lean-forward="true" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/service/TweetService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/tweets/src/main/java/app/hakon/tweets/model/Tweet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/tweets/src/main/java/app/hakon/tweets/repository/TweetRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/tweets/src/main/java/app/hakon/tweets/service/TweetService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#390#391#0" expanded="true" />
+            <element signature="e#437#438#0" expanded="true" />
+            <element signature="e#493#494#0" expanded="true" />
+            <element signature="e#545#546#0" expanded="true" />
+            <element signature="e#592#593#0" expanded="true" />
+            <element signature="e#612#613#0" expanded="true" />
+            <element signature="e#677#678#0" expanded="true" />
+            <element signature="e#717#718#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/ui/src/main/java/app/hakon/ui/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="34" column="31" lean-forward="true" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
         </state>
       </provider>
     </entry>

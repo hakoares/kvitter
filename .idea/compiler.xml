@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="kvitter" />
+        <module name="tweets" />
         <module name="ui" />
       </profile>
     </annotationProcessing>
@@ -19,6 +20,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="database" options="-parameters" />
       <module name="database (1)" options="-parameters" />
+      <module name="tweets" options="-parameters" />
       <module name="ui" options="-parameters" />
     </option>
   </component>
