@@ -10,9 +10,15 @@
         <module name="ui" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="database" target="1.8" />
+      <module name="database (1)" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="database" options="-parameters" />
+      <module name="database (1)" options="-parameters" />
       <module name="ui" options="-parameters" />
     </option>
   </component>

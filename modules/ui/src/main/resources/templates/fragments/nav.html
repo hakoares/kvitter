@@ -1,0 +1,59 @@
+<html>
+
+<div th:fragment="privatenav (username, roles)">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand">Kvitter</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Manage Rooms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Manage Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Calendar</a>
+                </li>
+
+
+                <!--Only available when role is ADMIN -->
+                <div th:switch="${roles.name()}">
+                    <li th:case="'ADMIN'" class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                </div>
+
+            </ul>
+            <i class="far fa-user mr-2"></i>
+            <span class="navbar-text" th:text="${username}"></span>
+            <a class="nav-link" href="/logout">Log out</a>
+        </div>
+    </nav>
+</div>
+
+<!--Nav when not signed in-->
+<div th:fragment="publicnav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand">Kvitter</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+            </ul>
+            <a class="nav-link" href="/login">Log in</a>
+        </div>
+    </nav>
+</div>
+</html>
