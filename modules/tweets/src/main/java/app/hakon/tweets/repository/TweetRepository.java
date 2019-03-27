@@ -11,4 +11,6 @@ public interface TweetRepository extends JpaRepository<Tweet, Long> {
 
     public void deleteById(long id);
 
+    public Tweet getTweetById(long id);
+
 }

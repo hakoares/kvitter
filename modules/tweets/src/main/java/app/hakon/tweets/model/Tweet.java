@@ -31,6 +31,12 @@ public class Tweet {
         ZonedDateTime zdt = ZonedDateTime.now();
         this.createdAt = Date.from(zdt.toInstant());
     }
+    public Tweet(String message, long user) {
+        this.message = message;
+        this.user = user;
+        ZonedDateTime zdt = ZonedDateTime.now();
+        this.createdAt = Date.from(zdt.toInstant());
+    }
 
     @Override
     public String toString() {

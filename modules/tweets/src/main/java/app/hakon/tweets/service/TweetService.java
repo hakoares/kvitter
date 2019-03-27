@@ -29,4 +29,12 @@ public class TweetService {
         tweetRepository.delete(tweet);
     }
 
+    public Tweet getTweetById(long id) {
+        return tweetRepository.getTweetById(id);
+    }
+
+    public void deleteById(long id){
+        tweetRepository.deleteById(id);
+    }
+
 }
