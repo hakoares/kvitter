@@ -7,8 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="kvitter" />
-        <module name="tweets" />
         <module name="ui" />
+        <module name="tweets" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
