@@ -43,6 +43,12 @@ public class UITweet {
         this.user = user;
     }
 
+    public UITweet(String message, Date createdAt, URL imageUrl) {
+        this.message = message;
+        this.createdAt = createdAt;
+        this.imageUrl = imageUrl;
+    }
+
     public String tweetDate(){
         return new SimpleDateFormat("yyyy-MM-dd, HH:mm").format(createdAt);
     }

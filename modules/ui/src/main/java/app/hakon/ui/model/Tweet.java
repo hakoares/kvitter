@@ -46,6 +46,10 @@ public class Tweet {
         this.createdAt = Date.from(zdt.toInstant());
     }
 
+    public long getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
         return "Tweet{" +

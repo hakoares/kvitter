@@ -2,6 +2,7 @@ package app.hakon.ui.service;
 
 import app.hakon.ui.model.Tweet;
 import app.hakon.ui.model.UITweet;
+import app.hakon.ui.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -25,11 +26,11 @@ public class TweetService {
         List<UITweet> uiTweets = new ArrayList<>();
 
         for (Tweet tweet : tweets){
-            UITweet t1 = new UITweet(tweet.getMessage(), tweet.getCreatedAt(), tweet.getImageUrl(), userServices.findUserById(tweet.getId()).get());
+            UITweet t1 = new UITweet(tweet.getMessage(), tweet.getCreatedAt(), tweet.getImageUrl(), userServices.findUserById(tweet.getId()));
             t1.setId(tweet.getId());
-
             uiTweets.add(t1);
         }
+
         return uiTweets;
     }
 

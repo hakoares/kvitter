@@ -23,8 +23,8 @@ public class TweetsApplication implements CommandLineRunner {
         Tweet t1 = new Tweet("Min første twittermelding", null, 3);
         Tweet t2 = new Tweet("Twitter er gøy!", null, 3);
 
-        tweetService.save(t1);
-        tweetService.save(t2);
+//        tweetService.save(t1);
+//        tweetService.save(t2);
 
 
     }
