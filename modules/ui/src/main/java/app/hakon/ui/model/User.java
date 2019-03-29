@@ -32,7 +32,7 @@ public class User {
 
 
     @OneToMany(mappedBy = "user")
-    private List<Tweet> tweets;
+    private List<UITweet> tweets;
 
 
     @Override

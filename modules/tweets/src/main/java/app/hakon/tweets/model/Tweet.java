@@ -21,6 +21,7 @@ public class Tweet {
     private Date createdAt;
     private URL imageUrl;
 
+    @Column(name = "user_id")
     private long user;
 
 
@@ -45,6 +46,8 @@ public class Tweet {
                 ", message='" + message + '\'' +
                 ", createdAt=" + createdAt +
                 ", imageUrl=" + imageUrl +
+                ", userId=" + user +
+
                 '}';
     }
 }

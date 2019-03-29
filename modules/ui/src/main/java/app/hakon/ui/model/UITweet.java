@@ -5,13 +5,15 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.ZonedDateTime;
 import java.util.Date;
 
-@Entity
 @Data
 @NoArgsConstructor
-public class Tweet {
+@Entity
+public class UITweet {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,30 +22,29 @@ public class Tweet {
     private String message;
     private Date createdAt;
     private URL imageUrl;
-    @Column(name = "user_id")
-    private long user;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private User user;
 
 
-    public Tweet(String message, URL imageUrl, long user) {
+    public UITweet(String message, URL imageUrl, User user) {
         this.message = message;
         this.imageUrl = imageUrl;
         this.user = user;
         ZonedDateTime zdt = ZonedDateTime.now();
-        this.createdAt = Date.from(zdt.toInstant());
+        this.createdAt = java.util.Date.from(zdt.toInstant());
     }
 
-    public Tweet(String message, Date createdAt, URL imageUrl, long user) {
+    public UITweet(String message, Date createdAt, URL imageUrl, User user) {
         this.message = message;
         this.createdAt = createdAt;
         this.imageUrl = imageUrl;
         this.user = user;
     }
 
-    public Tweet(String message, long user) {
-        this.message = message;
-        this.user = user;
-        ZonedDateTime zdt = ZonedDateTime.now();
-        this.createdAt = Date.from(zdt.toInstant());
+    public String tweetDate(){
+        return new SimpleDateFormat("yyyy-MM-dd, HH:mm").format(createdAt);
     }
 
     @Override
@@ -53,8 +54,6 @@ public class Tweet {
                 ", message='" + message + '\'' +
                 ", createdAt=" + createdAt +
                 ", imageUrl=" + imageUrl +
-                ", userId=" + user +
-
                 '}';
     }
 }

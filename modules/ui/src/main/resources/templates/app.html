@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kvitter</title>
+</head>
+<head th:replace="fragments/head :: head"></head>
+
+<body>
+
+<div th:switch="${authorize.getIsAuthorized()}">
+    <div th:case="false">
+        <div th:replace="fragments/nav :: publicnav"></div>
+    </div>
+    <div th:case="true">
+        <div modelAttribute="user"
+             th:replace="fragments/nav :: privatenav (username=${user.firstName}+' '+${user.lastName}, roles=${user.roles})"></div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 my-3">
+            <table class="table text-left">
+                <thead>
+                <tr>
+                    <th scope="col" >ID</th>
+                    <th scope="col" >Message</th>
+                    <th scope="col" >Date</th>
+                    <th scope="col" >User</th>
+                    <th scope="col">URL</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="tweet : ${tweets}">
+                    <td th:text="${tweet.id}"></td>
+                    <td th:text="${tweet.message}"></td>
+                    <td th:text="${tweet.tweetDate()}"></td>
+                    <td th:text="${tweet.user.getUsername()}"></td>
+                    <td th:text="${tweet.imageUrl}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
