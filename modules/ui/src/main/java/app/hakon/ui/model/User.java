@@ -34,6 +34,9 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<UITweet> tweets;
 
+    public String getUsername(){
+        return username;
+    }
 
     @Override
     public String toString() {

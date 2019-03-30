@@ -7,6 +7,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.net.URL;
+
 @SpringBootApplication
 public class TweetsApplication implements CommandLineRunner {
 
@@ -20,11 +22,9 @@ public class TweetsApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Tweet t1 = new Tweet("Min første twittermelding", null, 3);
-        Tweet t2 = new Tweet("Twitter er gøy!", null, 3);
+        Tweet t1 = new Tweet("Min første twittermelding", new URL("http://nrk.no"), 1);
 
-//        tweetService.save(t1);
-//        tweetService.save(t2);
+        tweetService.save(t1);
 
 
     }

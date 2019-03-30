@@ -49,6 +49,10 @@ public class UITweet {
         this.imageUrl = imageUrl;
     }
 
+    public String getUsername(){
+        return user.getUsername();
+    }
+
     public String tweetDate(){
         return new SimpleDateFormat("yyyy-MM-dd, HH:mm").format(createdAt);
     }

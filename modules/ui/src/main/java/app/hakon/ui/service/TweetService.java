@@ -27,6 +27,8 @@ public class TweetService {
 
         for (Tweet tweet : tweets){
             UITweet t1 = new UITweet(tweet.getMessage(), tweet.getCreatedAt(), tweet.getImageUrl(), userServices.findUserById(tweet.getId()));
+            System.out.println(t1.getUser().toString());
+
             t1.setId(tweet.getId());
             uiTweets.add(t1);
         }

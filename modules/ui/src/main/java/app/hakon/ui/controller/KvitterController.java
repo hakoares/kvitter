@@ -26,6 +26,8 @@ public class KvitterController {
         model.addAttribute("authorize", authorize);
 
         List<UITweet> allTweets = tweetService.getAll();
+        System.out.println(allTweets.get(0).getUser().getUsername());
+        System.out.println(allTweets.get(0).getMessage());
 
         model.addAttribute("tweets", allTweets);
         return "app";
