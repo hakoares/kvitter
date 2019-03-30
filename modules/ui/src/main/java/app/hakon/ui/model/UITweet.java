@@ -54,8 +54,13 @@ public class UITweet {
     }
 
     public String tweetDate(){
+        return new SimpleDateFormat("HH.mm MMM. dd.").format(createdAt);
+    }
+
+    public String getDate(){
         return new SimpleDateFormat("yyyy-MM-dd, HH:mm").format(createdAt);
     }
+
 
     @Override
     public String toString() {

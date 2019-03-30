@@ -20,8 +20,8 @@ public class UserServices {
         return userRepository.findUserByEmail(email);
     }
 
-    public User findUserById(long id){
-        return userRepository.findById(id).get();
+    public Optional<User> findUserById(long id){
+        return userRepository.findById(id);
     }
 
     public void save(User user) {

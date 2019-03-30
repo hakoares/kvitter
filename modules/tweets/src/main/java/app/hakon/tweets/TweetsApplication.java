@@ -22,7 +22,7 @@ public class TweetsApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Tweet t1 = new Tweet("Min første twittermelding", new URL("http://nrk.no"), 1);
+        Tweet t1 = new Tweet("Takk for en fin dag!!", null, 1);
 
         tweetService.save(t1);
 

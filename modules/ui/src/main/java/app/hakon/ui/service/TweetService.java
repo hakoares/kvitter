@@ -9,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,14 +27,22 @@ public class TweetService {
         List<UITweet> uiTweets = new ArrayList<>();
 
         for (Tweet tweet : tweets){
-            UITweet t1 = new UITweet(tweet.getMessage(), tweet.getCreatedAt(), tweet.getImageUrl(), userServices.findUserById(tweet.getId()));
-            System.out.println(t1.getUser().toString());
-
-            t1.setId(tweet.getId());
-            uiTweets.add(t1);
+            if(userServices.findUserById(tweet.getUser()).isPresent()){
+                User user = userServices.findUserById(tweet.getUser()).get();
+                UITweet t1 = new UITweet(tweet.getMessage(), tweet.getCreatedAt(), tweet.getImageUrl(), user);
+                t1.setId(tweet.getId());
+                uiTweets.add(t1);
+            }
         }
 
+        Collections.reverse(uiTweets);
         return uiTweets;
     }
+
+    public Tweet save(UITweet tweet){
+        Tweet tweetToSave = new Tweet(tweet.getMessage(),tweet.getCreatedAt(),tweet.getImageUrl(), tweet.getUser().getId());
+        return restTemplate.postForObject(BASE_URL, tweetToSave, Tweet.class);
+    }
+
 
 }
