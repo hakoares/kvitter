@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,7 +19,9 @@ public class RestController {
 
     @GetMapping("/tweets")
     public List<Tweet> getAllTweets(){
-        return tweetService.findAll();
+        List<Tweet> tweets = tweetService.findAll();
+        Collections.reverse(tweets);
+        return tweets;
     }
 
     @GetMapping("/tweets/{id}")
@@ -30,7 +33,7 @@ public class RestController {
     @GetMapping("/tweets/user/{id}")
     public List<Tweet> getTweetByUser(@PathVariable String id){
         long userId = Long.parseLong(id);
-        return tweetService.getAllByUser(userId);
+        return tweetService.getAllByUserId(userId);
     }
 
 

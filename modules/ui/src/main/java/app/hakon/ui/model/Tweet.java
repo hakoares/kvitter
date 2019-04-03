@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.persistence.*;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.ZonedDateTime;
@@ -16,18 +15,11 @@ import java.util.Date;
 @NoArgsConstructor
 public class Tweet {
 
-    @Autowired
-    UserServices userServices;
-
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "tweet_id")
     private long id;
     private String message;
     private Date createdAt;
     private URL imageUrl;
 
-//    @Column(name = "user_id")
     private long userId;
 
 
@@ -57,8 +49,8 @@ public class Tweet {
         return id;
     }
 
-    public String getUsername(){
-        return userServices.findUserById(getUserId()).get().getUsername();
+    public String getUsername() {
+       return String.valueOf(userId);
     }
 
     public String tweetDate() {

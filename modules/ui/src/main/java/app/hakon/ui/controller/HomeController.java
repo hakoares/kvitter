@@ -30,7 +30,7 @@ public class HomeController {
 
         authorize.isAuthorized(model);
         model.addAttribute("authorize", authorize);
-        return "app";
+        return "index";
     }
 
     @GetMapping("/login")

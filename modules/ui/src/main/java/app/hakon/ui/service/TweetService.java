@@ -23,6 +23,7 @@ public class TweetService {
 
     public List<Tweet> getAll() {
         return Arrays.stream(restTemplate.getForObject(BASE_URL, Tweet[].class)).collect(Collectors.toList());
+
     }
 
     public Tweet save(Tweet tweet){

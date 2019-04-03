@@ -22,19 +22,19 @@ public class Tweet {
     private URL imageUrl;
 
     @Column(name = "user_id")
-    private long user;
+    private long userId;
 
 
-    public Tweet(String message, URL imageUrl, long user) {
+    public Tweet(String message, URL imageUrl, long userId) {
         this.message = message;
         this.imageUrl = imageUrl;
-        this.user = user;
+        this.userId = userId;
         ZonedDateTime zdt = ZonedDateTime.now();
         this.createdAt = Date.from(zdt.toInstant());
     }
-    public Tweet(String message, long user) {
+    public Tweet(String message, long userId) {
         this.message = message;
-        this.user = user;
+        this.userId = userId;
         ZonedDateTime zdt = ZonedDateTime.now();
         this.createdAt = Date.from(zdt.toInstant());
     }
@@ -46,7 +46,7 @@ public class Tweet {
                 ", message='" + message + '\'' +
                 ", createdAt=" + createdAt +
                 ", imageUrl=" + imageUrl +
-                ", userId=" + user +
+                ", userId=" + userId +
 
                 '}';
     }

@@ -35,17 +35,18 @@ public class AppController {
 
         List<Tweet> allTweets = tweetService.getAll();
 
+
         model.addAttribute("tweet", new Tweet());
         model.addAttribute("tweets", allTweets);
         return "app";
     }
 
+    // Post tweet
     @PostMapping("/post")
     public String postTweet(@ModelAttribute("tweet") Tweet tweet) {
         User user = authorize.getUser().get();
-        Tweet tweetToPost = new Tweet(tweet.getMessage(), tweet.getImageUrl(), user.getId());
-        tweetService.save(tweetToPost);
-        System.out.println(tweet.getUsername());
+        Tweet tweetToSave = new Tweet(tweet.getMessage(), tweet.getImageUrl(), user.getId());
+        tweetService.save(tweetToSave);
 
         return "redirect:/app";
     }
