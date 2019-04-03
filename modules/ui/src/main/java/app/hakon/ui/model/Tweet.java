@@ -12,16 +12,20 @@ import java.util.Date;
 
 
 @Data
-@NoArgsConstructor
 public class Tweet {
 
     private long id;
     private String message;
     private Date createdAt;
     private URL imageUrl;
+    private Tweet retweet;
 
     private long userId;
 
+    public Tweet() {
+        ZonedDateTime zdt = ZonedDateTime.now();
+        this.createdAt = Date.from(zdt.toInstant());
+    }
 
     public Tweet(String message, URL imageUrl, long userId) {
         this.message = message;
@@ -59,6 +63,14 @@ public class Tweet {
 
     public String getDate() {
         return new SimpleDateFormat("yyyy-MM-dd, HH:mm").format(createdAt);
+    }
+
+    public boolean hasRetweet(){
+        if(retweet != null){
+            return true;
+        } else {
+            return false;
+        }
     }
 
 

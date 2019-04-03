@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface TweetRepository extends JpaRepository<Tweet, Long> {
 
+    public List<Tweet> findAllByOrderByCreatedAtDesc();
+
     public List<Tweet> getAllByUserId(long userId);
 
     public void deleteById(long id);

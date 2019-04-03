@@ -30,6 +30,10 @@ public class TweetService {
         return restTemplate.postForObject(BASE_URL, tweet, Tweet.class);
     }
 
+    public Tweet getTweetById(long tweetId){
+        return restTemplate.getForObject(BASE_URL+"/"+tweetId, Tweet.class);
+    }
+
 
 
 
