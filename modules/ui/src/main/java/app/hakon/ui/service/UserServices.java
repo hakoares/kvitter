@@ -1,5 +1,6 @@
 package app.hakon.ui.service;
 
+import app.hakon.ui.model.Tweet;
 import app.hakon.ui.model.User;
 import app.hakon.ui.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

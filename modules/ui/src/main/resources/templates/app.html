@@ -36,7 +36,7 @@
             <div th:each="tweet : ${tweets}">
                 <div class="card mb-3">
                     <div class="card-body">
-                        <h5 class="card-title" style='display:inline'><a class="text-dark" style='display:inline' th:href="${tweet.user.getUsername()}" th:text="'@'+${tweet.user.getUsername()}"></a></h5>
+                        <h5 class="card-title" style='display:inline'><a class="text-dark" style='display:inline' th:href="${tweet.getUsername()}" th:text="'@'+${tweet.getUsername()}"></a></h5>
                         <small style='display:inline' th:text="'  •  '+${tweet.tweetDate()}"></small>
                         <p class="card-text" th:text="${tweet.message}"></p>
                         <a href="#" class="btn btn-primary">Retweet</a>

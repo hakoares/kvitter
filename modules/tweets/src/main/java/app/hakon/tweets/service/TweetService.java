@@ -17,8 +17,8 @@ public class TweetService {
         return tweetRepository.findAll();
     }
 
-    public List<Tweet> getAllByUser(long userID){
-        return tweetRepository.getAllByUser(userID);
+    public List<Tweet> getAllByUserId(long userID){
+        return tweetRepository.getAllByUserId(userID);
     }
 
     public void save(Tweet tweet){
