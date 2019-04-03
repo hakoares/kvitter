@@ -13,6 +13,10 @@ public class TweetService {
     @Autowired
     TweetRepository tweetRepository;
 
+    public List<Tweet> findAllOrdered(){
+        return tweetRepository.findAllByOrderByCreatedAtDesc();
+    }
+
     public List<Tweet> findAll(){
         return tweetRepository.findAll();
     }

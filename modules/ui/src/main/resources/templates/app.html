@@ -21,13 +21,18 @@
     <div class="row">
         <div class="col-sm-8 my-3">
             <form th:action="@{/app/post}" modelAttribute="tweet" method="post">
-                <div class="input-group mb-3 mt-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">Whats on your mind?</span>
+                <div class="input-group mb-3">
+                    <input type="text" name="message" class="form-control" placeholder="What's on your mind?" aria-label="message" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit">Post</button>
+
                     </div>
-                    <input type="text" name="message"  class="form-control" aria-label="message" aria-describedby="basic-addon1">
                 </div>
-                <button  class="btn btn-primary">Kvitt</button>
+                <div class="input-group">
+                    <input id="myInput" type="file" style="visibility:hidden" />
+                    <input type="button" class="btn btn-outline-secondary btn-sm" value="Upload image" onclick="$('#myInput').click();" />
+                </div>
+
             </form>
         </div>
     </div>
@@ -38,22 +43,22 @@
 
 
                 <div th:if="${tweet.hasRetweet()} == false">
-                    <div class="card mb-3">
+                    <div class="card">
                         <div class="card-body">
                             <h5 class="card-title" style='display:inline'><a class="text-dark" style='display:inline' th:href="${tweet.getUsername()}" th:text="'@'+${tweet.getUsername()}"></a></h5>
                             <small style='display:inline' th:text="'  •  '+${tweet.tweetDate()}"></small>
                             <p class="card-text" th:text="${tweet.message}"></p>
-                            <a th:href="@{/app/retweet/}+${tweet.id}" class="btn btn-primary">Retweet</a>
+                            <a th:href="@{/app/retweet/}+${tweet.id}" class="btn btn-outline-secondary btn-sm">Retweet</a>
                         </div>
-                    </div>
-                    <div th:if="${tweet.imageUrl != null}">
-                        <img class="card-img-bottom" th:src="${tweet.imageUrl}" alt="Card image cap">
+                        <div th:if="${tweet.imageUrl != null}">
+                            <img class="card-img-bottom" th:src="${tweet.imageUrl}" alt="Card image cap">
+                        </div>
                     </div>
                 </div>
 
 
                 <div th:if="${tweet.hasRetweet()} == true">
-                    <div class="card mb-3">
+                    <div class="card">
                         <div class="card-body">
                             <small class="card-title" style='display:inline'><a class="text-dark" style='display:inline' th:href="${tweet.getUsername()}" th:text="'@'+${tweet.getUsername()}+' retweeted'"></a></small>
                             <div class="card mt-3">
@@ -61,10 +66,8 @@
                                     <h5 class="card-title" style='display:inline'><a class="text-dark" style='display:inline' th:href="${tweet.retweet.getUsername()}" th:text="'@'+${tweet.retweet.getUsername()}"></a></h5>
                                     <small style='display:inline' th:text="'  •  '+${tweet.retweet.tweetDate()}"></small>
                                     <p class="card-text" th:text="${tweet.retweet.message}"></p>
-                                    <a th:href="@{/app/retweet/}+${tweet.retweet.id}" class="btn btn-primary">Retweet</a>
-
+                                    <a th:href="@{/app/retweet/}+${tweet.retweet.id}" class="btn btn-outline-secondary btn-sm">Retweet</a>
                                 </div>
-
                                 <div th:if="${tweet.retweet.imageUrl != null}">
                                     <img class="card-img-bottom" th:src="${tweet.retweet.imageUrl}" alt="Card image cap">
                                 </div>
@@ -73,44 +76,11 @@
                     </div>
                 </div>
 
+                <br>
 
             </div>
         </div>
     </div>
-
-
-<!--    <div class="row">-->
-<!--        <div class="col-sm-8 my-3">-->
-<!--            <div th:each="tweet : ${tweets}">-->
-<!--                <div class="card mb-3">-->
-<!--                    <div class="card-body">-->
-<!--                        <h5 class="card-title" style='display:inline'><a class="text-dark" style='display:inline' th:href="${tweet.getUsername()}" th:text="'@'+${tweet.getUsername()}"></a></h5>-->
-<!--                        <small style='display:inline' th:text="'  •  '+${tweet.tweetDate()}"></small>-->
-<!--                        <p class="card-text" th:text="${tweet.message}"></p>-->
-<!--                        <a th:href="@{/app/retweet/}+${tweet.id}" class="btn btn-primary">Retweet</a>-->
-<!--                    </div>-->
-
-<!--                    <div th:if="${tweet.hasRetweet()}">-->
-<!--                        <div class="card mb-3">-->
-<!--                            <div class="card-body">-->
-<!--                                <h5 class="card-title" style='display:inline'><a class="text-dark" style='display:inline' th:href="${tweet.retweet.getUsername()}" th:text="'@'+${tweet.retweet.getUsername()}"></a></h5>-->
-<!--                                <small style='display:inline' th:text="'  •  '+${tweet.retweet.tweetDate()}"></small>-->
-<!--                                <p class="card-text" th:text="${tweet.retweet.message}"></p>-->
-<!--                            </div>-->
-
-<!--                            <div th:if="${tweet.retweet.imageUrl != null}">-->
-<!--                                <img class="card-img-bottom" th:src="${tweet.retweet.imageUrl}" alt="Card image cap">-->
-<!--                            </div>-->
-<!--                        </div>-->
-
-<!--                    </div>-->
-<!--                    <div th:if="${tweet.imageUrl != null}">-->
-<!--                        <img class="card-img-bottom" th:src="${tweet.imageUrl}" alt="Card image cap">-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
 </div>
 </body>
 </html>
