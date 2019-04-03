@@ -21,6 +21,9 @@ public class Tweet {
     private Date createdAt;
     private URL imageUrl;
 
+    @ManyToOne
+    private Tweet retweet;
+
     @Column(name = "user_id")
     private long userId;
 
