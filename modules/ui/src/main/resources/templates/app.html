@@ -55,8 +55,8 @@
                 <div th:if="${tweet.hasRetweet()} == true">
                     <div class="card mb-3">
                         <div class="card-body">
-                            <p class="card-title" style='display:inline'><a class="text-dark" style='display:inline' th:href="${tweet.getUsername()}" th:text="'@'+${tweet.getUsername()}+' retweeted'"></a></p>
-                            <div class="card mb-3">
+                            <small class="card-title" style='display:inline'><a class="text-dark" style='display:inline' th:href="${tweet.getUsername()}" th:text="'@'+${tweet.getUsername()}+' retweeted'"></a></small>
+                            <div class="card mt-3">
                                 <div class="card-body">
                                     <h5 class="card-title" style='display:inline'><a class="text-dark" style='display:inline' th:href="${tweet.retweet.getUsername()}" th:text="'@'+${tweet.retweet.getUsername()}"></a></h5>
                                     <small style='display:inline' th:text="'  •  '+${tweet.retweet.tweetDate()}"></small>
