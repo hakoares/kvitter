@@ -20,20 +20,23 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-8 my-3">
-            <form th:action="@{/app/post}" modelAttribute="tweet" method="post">
-                <div class="input-group mb-3">
-                    <input type="text" name="message" class="form-control" placeholder="What's on your mind?" aria-label="message" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="submit">Post</button>
+            <div class="card">
+                <div class="card-body">
+                    <form th:action="@{/app/post}" modelAttribute="tweet" method="post">
 
-                    </div>
-                </div>
-                <div class="input-group">
-                    <input id="myInput" type="file" style="visibility:hidden" />
-                    <input type="button" class="btn btn-outline-secondary btn-sm" value="Upload image" onclick="$('#myInput').click();" />
-                </div>
+                        <div class="input-group mb-3">
+                            <input type="text" name="message" maxlength="140" class="form-control" placeholder="What's on your mind?" aria-label="message" aria-describedby="basic-addon2">
+                        </div>
+                        <button class="btn btn-outline-secondary btn-sm" type="button" onclick="$('#myInput').click();">Upload Image</button>
+                        <button class="btn btn-outline-secondary btn-sm" type="submit">Post</button>
+                        <input class="text-left" id="myInput" type="file" name="img" style="visibility:hidden" />
 
-            </form>
+
+                    </form>
+                </div>
+            </div>
+
+
         </div>
     </div>
 

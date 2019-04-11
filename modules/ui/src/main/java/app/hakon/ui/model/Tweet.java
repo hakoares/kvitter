@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.validation.constraints.Max;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.ZonedDateTime;
@@ -15,6 +16,8 @@ import java.util.Date;
 public class Tweet {
 
     private long id;
+
+    @Max(value = 140, message = "Max 140 chars.")
     private String message;
     private Date createdAt;
     private URL imageUrl;

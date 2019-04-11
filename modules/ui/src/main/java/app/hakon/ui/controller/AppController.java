@@ -8,8 +8,10 @@ import app.hakon.ui.service.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RequestMapping("/app")
@@ -40,12 +42,13 @@ public class AppController {
 
     // Post tweet
     @PostMapping("/post")
-    public String postTweet(@ModelAttribute("tweet") Tweet tweet) {
+    public String postTweet( @ModelAttribute("tweet") Tweet tweet, Model model) {
+
         User user = authorize.getUser().get();
         Tweet tweetToSave = new Tweet(tweet.getMessage(), tweet.getImageUrl(), user.getId());
         tweetService.save(tweetToSave);
-
         return "redirect:/app";
+
     }
 
     @GetMapping("/retweet/{tweetId}")
