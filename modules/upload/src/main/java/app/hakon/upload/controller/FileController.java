@@ -17,8 +17,11 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.activation.MimeType;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.time.ZonedDateTime;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 @RestController
@@ -30,18 +33,31 @@ public class FileController {
     FileStorageService fileStorageService;
 
 
+    // TODO: 2019-04-23
+    public String fileName(){
+
+        ZonedDateTime zdt = ZonedDateTime.now();
+        double fn = Math.random() * zdt.getSecond() * 10;
+        return String.valueOf(fn);
+    }
 
 
-    @PostMapping("/uploadFile")
+
+
+    @PostMapping("/img")
     public String uploadFile(@RequestParam("file") MultipartFile file) {
+        Random rand = new Random();
 
         System.out.println(file.getContentType());
 
         if(file.getContentType().contains(ImgTypes.gif) || file.getContentType().contains(ImgTypes.png) || file.getContentType().contains(ImgTypes.jpg)){
             String fileName = fileStorageService.storeFile(file);
 
+            rand.nextInt(100);
+
+
             String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                    .path("/downloadFile/")
+                    .path("/img/")
                     .path(fileName)
                     .toUriString();
 
@@ -49,12 +65,13 @@ public class FileController {
         }
 
     return "Uploaded file is not a valid image. Only JPG, PNG and GIF files are allowed";
+
     }
 
 
 
 
-    @GetMapping("/downloadFile/{fileName:.+}")
+    @GetMapping("/img/{fileName:.+}")
     public ResponseEntity<Resource> downloadFile(@PathVariable String fileName, HttpServletRequest request) {
 
 

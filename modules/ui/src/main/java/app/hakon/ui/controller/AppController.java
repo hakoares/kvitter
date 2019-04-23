@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -42,7 +43,15 @@ public class AppController {
 
     // Post tweet
     @PostMapping("/post")
-    public String postTweet( @ModelAttribute("tweet") Tweet tweet, Model model) {
+    public String postTweet(@ModelAttribute("tweet") Tweet tweet, @RequestParam("image") MultipartFile imagefile, Model model) {
+
+        if(imagefile.isEmpty()){
+            System.out.println("Ingen bilde");
+        } else {
+            System.out.println(imagefile.getContentType());
+            System.out.println(imagefile.getName());
+
+        }
 
         User user = authorize.getUser().get();
         Tweet tweetToSave = new Tweet(tweet.getMessage(), tweet.getImageUrl(), user.getId());

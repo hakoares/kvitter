@@ -35,6 +35,7 @@ public class Tweet {
         ZonedDateTime zdt = ZonedDateTime.now();
         this.createdAt = Date.from(zdt.toInstant());
     }
+
     public Tweet(String message, long userId) {
         this.message = message;
         this.userId = userId;
