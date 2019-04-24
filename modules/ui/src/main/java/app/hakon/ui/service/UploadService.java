@@ -23,12 +23,11 @@ public class UploadService {
 
         System.out.println("\nimg.save:");
 
-
         try {
             System.out.println("try");
 
-//            restTemplate.postForObject(BASE_URL, img, MultipartFile.class);
-            restTemplate.postForEntity(BASE_URL, img, MultipartFile.class);
+            restTemplate.postForObject(BASE_URL, img, MultipartFile.class);
+
 
         } catch (Exception e) {
             System.out.println("Error: " + e);
