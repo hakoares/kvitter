@@ -1,7 +1,9 @@
 package app.hakon.follow.controller;
 
 import app.hakon.follow.module.Follow;
+import app.hakon.follow.module.FollowerList;
 import app.hakon.follow.service.FollowService;
+import app.hakon.follow.service.FollowerListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,13 +18,14 @@ import java.util.Set;
 public class RestController {
 
     @Autowired
-    FollowService followService;
+    FollowerListService followerListService;
 
     @GetMapping("/followers/{id}")
-    public Set<Long> follow (@PathVariable String id){
+    public Set<FollowerList> follow (@PathVariable String id){
         long userid = Long.parseLong(id);
 
-        return followService.getFollow(userid).getFollowers();
+
+        return followerListService.findAllById(userid);
     }
 
     @GetMapping("/followers/{you}/{follow}")
@@ -30,13 +33,7 @@ public class RestController {
         long youid = Long.parseLong(you);
         long followid = Long.parseLong(follow);
 
-        System.out.println(youid + " - " + followid);
 
-        Follow f0 = followService.getFollow(youid);
-
-        f0.addFollowing(followService.getFollow(followid));
-
-        followService.save(f0);
 
         return true;
     }

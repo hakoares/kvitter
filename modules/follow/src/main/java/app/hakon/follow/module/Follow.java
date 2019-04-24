@@ -1,6 +1,5 @@
 package app.hakon.follow.module;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -20,7 +19,6 @@ public class Follow {
     @Column(name = "user_id")
     private long user;
 
-//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @ManyToMany
     private Set<Follow> follows = new HashSet<>();
 
