@@ -4,8 +4,10 @@ import app.hakon.ui.model.Tweet;
 import app.hakon.ui.model.User;
 import app.hakon.ui.service.Authorize;
 import app.hakon.ui.service.TweetService;
+import app.hakon.ui.service.UploadService;
 import app.hakon.ui.service.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.converter.HttpMessageConversionException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -27,6 +29,9 @@ public class AppController {
     @Autowired
     UserServices userServices;
 
+    @Autowired
+    UploadService uploadService;
+
     @GetMapping("")
     public String getApp(Model model){
         authorize.isAuthorized(model);
@@ -43,18 +48,17 @@ public class AppController {
 
     // Post tweet
     @PostMapping("/post")
-    public String postTweet(@ModelAttribute("tweet") Tweet tweet, @RequestParam("image") MultipartFile imagefile, Model model) {
-
-        if(imagefile.isEmpty()){
-            System.out.println("Ingen bilde");
-        } else {
-            System.out.println(imagefile.getContentType());
-            System.out.println(imagefile.getName());
-
-        }
+    public String postTweet(@ModelAttribute("tweet") Tweet tweet, @RequestParam("img") MultipartFile imagefile, Model model)  {
 
         User user = authorize.getUser().get();
         Tweet tweetToSave = new Tweet(tweet.getMessage(), tweet.getImageUrl(), user.getId());
+
+        if(!imagefile.isEmpty()){
+            uploadService.save(imagefile);
+        } else {
+            System.out.println("Ingen bilde å lagre");
+        }
+
         tweetService.save(tweetToSave);
         return "redirect:/app";
 

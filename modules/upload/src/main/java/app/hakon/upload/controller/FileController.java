@@ -17,6 +17,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.activation.MimeType;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.io.InputStream;
 import java.time.ZonedDateTime;
 import java.util.Arrays;
 import java.util.Date;
@@ -46,15 +47,11 @@ public class FileController {
 
     @PostMapping("/img")
     public String uploadFile(@RequestParam("file") MultipartFile file) {
-        Random rand = new Random();
 
         System.out.println(file.getContentType());
 
         if(file.getContentType().contains(ImgTypes.gif) || file.getContentType().contains(ImgTypes.png) || file.getContentType().contains(ImgTypes.jpg)){
             String fileName = fileStorageService.storeFile(file);
-
-            rand.nextInt(100);
-
 
             String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
                     .path("/img/")
