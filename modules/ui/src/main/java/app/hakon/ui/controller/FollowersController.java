@@ -1,17 +1,18 @@
 package app.hakon.ui.controller;
 
+import app.hakon.ui.model.FollowerList;
 import app.hakon.ui.model.Tweet;
 import app.hakon.ui.model.User;
-import app.hakon.ui.service.Authorize;
-import app.hakon.ui.service.TweetService;
-import app.hakon.ui.service.UploadService;
-import app.hakon.ui.service.UserServices;
+import app.hakon.ui.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @RequestMapping("/followers")
@@ -29,14 +30,29 @@ public class FollowersController {
     @Autowired
     UploadService uploadService;
 
+    @Autowired
+    FollowService followService;
+
     @GetMapping("")
     public String getApp(Model model){
         authorize.isAuthorized(model);
         model.addAttribute("authorize", authorize);
 
+        FollowerList fl = followService.getById(authorize.getUser().get().getId());
+        List<Tweet> allTweets = new ArrayList<>();
 
-        List<Tweet> allTweets = tweetService.getAll();
+        for(User user : fl.getFollows()) {
+            for(Tweet t : tweetService.getTweetByUserId(user.getId())) {
+                allTweets.add(t);
+            }
+        }
+//        Collections.sort(allTweets, new Comparator<Tweet>() {
+//            public int compare(Tweet o1, Tweet o2) {
+//                return o1.getCreatedAt().compareTo(o2.getCreatedAt());
+//            }
+//        });
 
+        Collections.reverse(allTweets);
 
         model.addAttribute("tweet", new Tweet());
         model.addAttribute("tweets", allTweets);

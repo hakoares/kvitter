@@ -17,6 +17,9 @@ public class UserServices {
     @Autowired
     LoginServices loginServices;
 
+    @Autowired
+    FollowService followService;
+
     public Optional<User> findUserByEmail(String email) {
         return userRepository.findUserByEmail(email);
     }
@@ -26,6 +29,10 @@ public class UserServices {
     }
 
     public void save(User user) {
+
+        // Creates a followerlist in Follow API
+        followService.createList(user.getId());
+
         userRepository.save(user);
     }
 

@@ -15,12 +15,12 @@ public class FollowService {
     String BASE_URL = "http://localhost:9090/";
     private RestTemplate restTemplate = new RestTemplate();
 
-    public List<FollowerList> getById(long id) {
-        return Arrays.stream(restTemplate.getForObject(BASE_URL+"/following/"+id, FollowerList[].class)).collect(Collectors.toList());
+    public FollowerList getById(long id) {
+        return restTemplate.getForObject(BASE_URL+"followers/"+id, FollowerList.class);
 
     }
 
     public String createList(long id){
-        return restTemplate.getForObject(BASE_URL + "/addlist/"+id, String.class);
+        return restTemplate.getForObject(BASE_URL + "addlist/"+id, String.class);
     }
 }
