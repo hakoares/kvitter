@@ -19,18 +19,18 @@ public class RestController {
 
     @GetMapping("/followers/{id}")
     public FollowerList follow (@PathVariable String id){
-        long userid = Long.parseLong(id);
+        long listid = Long.parseLong(id);
 
 
-        return followerListService.findById(userid);
+        return followerListService.findById(listid);
     }
 
     @GetMapping("/addlist/{id}")
     public String addListOnUser(@PathVariable String id) {
-        long userid = Long.parseLong(id);
+        long listid = Long.parseLong(id);
 
         FollowerList fl = new FollowerList();
-        fl.setlistId(userid);
+        fl.setlistId(listid);
 
         followerListService.save(fl);
 
@@ -65,7 +65,14 @@ public class RestController {
 
         followerListService.save(fl);
         return "User " + listid + " do not follow user " + otherid + " any more";
+    }
 
+    @GetMapping("/delete/{id}")
+    public String deleteList(@PathVariable String id) {
+        long listid = Long.parseLong(id);
 
+        followerListService.delete(listid);
+
+        return "List id: " + listid + " deleted.";
     }
 }

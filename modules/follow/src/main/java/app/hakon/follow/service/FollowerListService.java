@@ -26,4 +26,8 @@ public class FollowerListService {
         return followerListRepository.findByListid(id);
     }
 
+    public void delete(long id){
+        followerListRepository.delete(findById(id));
+    }
+
 }
