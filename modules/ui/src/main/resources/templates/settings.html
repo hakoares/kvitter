@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kvitter - Settings</title>
+</head>
+<head th:replace="fragments/head :: head"></head>
+
+<body>
+
+<div th:switch="${authorize.getIsAuthorized()}">
+    <div th:case="false">
+        <div th:replace="fragments/nav :: publicnav"></div>
+    </div>
+    <div th:case="true">
+        <div modelAttribute="user"
+             th:replace="fragments/nav :: privatenav (username=${user.firstName}+' '+${user.lastName}, roles=${user.roles})"></div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 my-3">
+            <div class="card">
+                <div class="card-body">
+                    <h4 th:text="'@'+${otheruser.username}"></h4>
+                    <p th:text="${otheruser.firstName}+' '+${otheruser.lastName}"></p>
+                    <br>
+                    <p th:text="${otheruser.description}"></p>
+
+
+                    </div>
+
+            </div>
+
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8 my-3">
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

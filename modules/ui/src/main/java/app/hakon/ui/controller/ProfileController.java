@@ -53,4 +53,15 @@ public class ProfileController {
 
         return "profile";
     }
+
+    @GetMapping("/follow/{a}/{b}")
+    public String follow(@PathVariable("a") String a, @PathVariable("b") String b){
+        long listid = Long.parseLong(a);
+        long otherid = Long.parseLong(b);
+        System.out.println(listid);
+        System.out.println(otherid);
+
+
+        return "redirect:/profile/"+otherid;
+    }
 }
