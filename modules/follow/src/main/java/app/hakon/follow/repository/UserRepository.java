@@ -1,14 +1,12 @@
 package app.hakon.follow.repository;
 
-import app.hakon.follow.module.User;
+import app.hakon.follow.module.FollowUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
+public interface UserRepository extends JpaRepository<FollowUser, Long> {
 
-public interface UserRepository extends JpaRepository<User, Long> {
+    public FollowUser save(FollowUser followUser);
 
-    public User save(User user);
-
-    public User findById(long id);
+    public FollowUser findById(long id);
 
 }

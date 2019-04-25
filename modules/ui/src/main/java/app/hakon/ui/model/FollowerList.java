@@ -1,4 +1,4 @@
-package app.hakon.follow.module;
+package app.hakon.ui.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,7 +24,7 @@ public class FollowerList {
             name = "follow_followinglist",
             joinColumns = { @JoinColumn(name = "listid") }, inverseJoinColumns = { @JoinColumn(name = "id") }
     )
-    private List<FollowUser> follows;
+    private List<User> follows;
 
 
 
@@ -34,13 +34,13 @@ public class FollowerList {
 
 
 
-    public boolean follow(FollowUser followUser){
-        follows.add(followUser);
+    public boolean follow(User user){
+        follows.add(user);
         return true;
     }
 
-    public boolean unFollow(FollowUser followUser) {
-        follows.remove(followUser);
+    public boolean unFollow(User user) {
+        follows.remove(user);
         return true;
     }
 

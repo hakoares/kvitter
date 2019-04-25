@@ -10,7 +10,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @Table(name="follow_users")
-public class User {
+public class FollowUser {
 
     @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)

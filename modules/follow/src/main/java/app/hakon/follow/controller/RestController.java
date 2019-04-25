@@ -1,7 +1,7 @@
 package app.hakon.follow.controller;
 
+import app.hakon.follow.module.FollowUser;
 import app.hakon.follow.module.FollowerList;
-import app.hakon.follow.module.User;
 import app.hakon.follow.service.FollowerListService;
 import app.hakon.follow.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,14 +43,14 @@ public class RestController {
         long listid = Long.parseLong(a);
         long otherid = Long.parseLong(b);
 
-        User u1 = new User();
+        FollowUser u1 = new FollowUser();
         u1.setId(otherid);
         FollowerList fl = followerListService.findById(listid);
 
         fl.follow(u1);
 
         followerListService.save(fl);
-        return "User " + listid + " is now following user " + otherid;
+        return "FollowUser " + listid + " is now following user " + otherid;
     }
 
     @GetMapping("/unfollow/{a}/{b}")
@@ -59,12 +59,12 @@ public class RestController {
         long otherid = Long.parseLong(b);
 
         FollowerList fl = followerListService.findById(listid);
-        User u1 = userService.findById(otherid);
+        FollowUser u1 = userService.findById(otherid);
 
         fl.unFollow(u1);
 
         followerListService.save(fl);
-        return "User " + listid + " do not follow user " + otherid + " any more";
+        return "FollowUser " + listid + " do not follow user " + otherid + " any more";
     }
 
     @GetMapping("/delete/{id}")
