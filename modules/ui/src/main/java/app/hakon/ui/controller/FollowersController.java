@@ -1,5 +1,6 @@
 package app.hakon.ui.controller;
 
+import app.hakon.ui.model.FollowUser;
 import app.hakon.ui.model.FollowerList;
 import app.hakon.ui.model.Tweet;
 import app.hakon.ui.model.User;
@@ -41,7 +42,7 @@ public class FollowersController {
         FollowerList fl = followService.getById(authorize.getUser().get().getId());
         List<Tweet> allTweets = new ArrayList<>();
 
-        for(User user : fl.getFollows()) {
+        for(FollowUser user : fl.getFollows()) {
             for(Tweet t : tweetService.getTweetByUserId(user.getId())) {
                 allTweets.add(t);
             }
@@ -54,6 +55,7 @@ public class FollowersController {
 
         Collections.reverse(allTweets);
 
+        model.addAttribute("us", userServices);
         model.addAttribute("tweet", new Tweet());
         model.addAttribute("tweets", allTweets);
         return "followers";
@@ -66,11 +68,8 @@ public class FollowersController {
         User user = authorize.getUser().get();
         Tweet tweetToSave = new Tweet(tweet.getMessage(), tweet.getImageUrl(), user.getId());
 
-        if(!imagefile.isEmpty()){
-            uploadService.save(imagefile);
-        } else {
-            System.out.println("Ingen bilde å lagre");
-        }
+//        uploadService.save(imagefile);
+
 
         tweetService.save(tweetToSave);
         return "redirect:/followers";

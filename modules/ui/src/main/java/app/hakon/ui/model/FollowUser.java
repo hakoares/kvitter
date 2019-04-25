@@ -22,6 +22,7 @@ public class FollowUser {
     @ManyToMany(mappedBy = "follows")
     List<FollowerList> followerList;
 
-
-
+    public FollowUser(long id) {
+        this.id = id;
+    }
 }

@@ -16,7 +16,7 @@
                     <a class="nav-link" href="/followers">Followers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Profile</a>
+                    <a class="nav-link" th:href="'/profile/'+${user.id}">Profile</a>
                 </li>
 
                 <!--Only available when role is ADMIN -->

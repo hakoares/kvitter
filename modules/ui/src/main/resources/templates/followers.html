@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Kvitter</title>
+    <title>Kvitter - Followers</title>
 </head>
 <head th:replace="fragments/head :: head"></head>
 
@@ -42,46 +42,7 @@
 
     <div class="row">
         <div class="col-sm-8 my-3">
-            <div th:each="tweet : ${tweets}">
-
-
-                <div th:if="${tweet.hasRetweet()} == false">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title" style='display:inline'><a class="text-dark" style='display:inline' th:href="${tweet.getUsername()}" th:text="'@'+${tweet.getUsername()}"></a></h5>
-                            <small style='display:inline' th:text="'  •  '+${tweet.tweetDate()}"></small>
-                            <p class="card-text" th:text="${tweet.message}"></p>
-                            <a th:href="@{/followers/retweet/}+${tweet.id}" class="btn btn-outline-secondary btn-sm">Retweet</a>
-                        </div>
-                        <div th:if="${tweet.imageUrl != null}">
-                            <img class="card-img-bottom" th:src="${tweet.imageUrl}" alt="Card image cap">
-                        </div>
-                    </div>
-                </div>
-
-
-                <div th:if="${tweet.hasRetweet()} == true">
-                    <div class="card">
-                        <div class="card-body">
-                            <small class="card-title" style='display:inline'><a class="text-dark" style='display:inline' th:href="${tweet.getUsername()}" th:text="'@'+${tweet.getUsername()}+' retweeted'"></a></small>
-                            <div class="card mt-3">
-                                <div class="card-body">
-                                    <h5 class="card-title" style='display:inline'><a class="text-dark" style='display:inline' th:href="${tweet.retweet.getUsername()}" th:text="'@'+${tweet.retweet.getUsername()}"></a></h5>
-                                    <small style='display:inline' th:text="'  •  '+${tweet.retweet.tweetDate()}"></small>
-                                    <p class="card-text" th:text="${tweet.retweet.message}"></p>
-                                    <a th:href="@{/followers/retweet/}+${tweet.retweet.id}" class="btn btn-outline-secondary btn-sm">Retweet</a>
-                                </div>
-                                <div th:if="${tweet.retweet.imageUrl != null}">
-                                    <img class="card-img-bottom" th:src="${tweet.retweet.imageUrl}" alt="Card image cap">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-
-            </div>
+            <div modelAttribute="tweets" th:replace="fragments/feed :: feed (tweets=${tweets}, us=${us})"></div>
         </div>
     </div>
 </div>

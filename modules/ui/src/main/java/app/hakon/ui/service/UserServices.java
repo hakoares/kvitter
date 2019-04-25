@@ -69,5 +69,10 @@ public class UserServices {
         return true;
     }
 
+    public String getUsername(long userid){
+        return findUserById(userid).get().getUsername();
+    }
+
+
 
 }

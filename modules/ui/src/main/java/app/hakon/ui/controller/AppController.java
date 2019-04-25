@@ -41,6 +41,7 @@ public class AppController {
         List<Tweet> allTweets = tweetService.getAll();
 
 
+        model.addAttribute("us", userServices);
         model.addAttribute("tweet", new Tweet());
         model.addAttribute("tweets", allTweets);
         return "app";
@@ -53,11 +54,7 @@ public class AppController {
         User user = authorize.getUser().get();
         Tweet tweetToSave = new Tweet(tweet.getMessage(), tweet.getImageUrl(), user.getId());
 
-        if(!imagefile.isEmpty()){
-            uploadService.save(imagefile);
-        } else {
-            System.out.println("Ingen bilde å lagre");
-        }
+//        uploadService.save(imagefile);
 
         tweetService.save(tweetToSave);
         return "redirect:/app";

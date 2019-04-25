@@ -1,5 +1,6 @@
 package app.hakon.ui.service;
 
+import app.hakon.ui.model.FollowUser;
 import app.hakon.ui.model.Roles;
 import app.hakon.ui.model.User;
 import lombok.Data;
@@ -20,6 +21,9 @@ public class Authorize {
     @Autowired
     UserServices userServices;
 
+    @Autowired
+    FollowService followService;
+
     private Boolean isAuthorized = false;
 
 
@@ -35,6 +39,12 @@ public class Authorize {
             return false;
         }
     }
+
+    public String getUsername(long userid){
+        return userServices.findUserById(userid).get().getUsername();
+    }
+
+
 
     // DONE
     public Optional<User> getUser() {

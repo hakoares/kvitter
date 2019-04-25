@@ -24,7 +24,7 @@ public class FollowerList {
             name = "follow_followinglist",
             joinColumns = { @JoinColumn(name = "listid") }, inverseJoinColumns = { @JoinColumn(name = "id") }
     )
-    private List<User> follows;
+    private List<FollowUser> follows;
 
 
 
@@ -34,14 +34,24 @@ public class FollowerList {
 
 
 
-    public boolean follow(User user){
+    public boolean follow(FollowUser user){
         follows.add(user);
         return true;
     }
 
-    public boolean unFollow(User user) {
+    public boolean unFollow(FollowUser user) {
         follows.remove(user);
         return true;
+    }
+
+    public boolean followCheck(User user) {
+
+        if(follows.contains(new FollowUser(user.getId()))){
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
     @Override

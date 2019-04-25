@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kvitter - Profile</title>
+</head>
+<head th:replace="fragments/head :: head"></head>
+
+<body>
+
+<div th:switch="${authorize.getIsAuthorized()}">
+    <div th:case="false">
+        <div th:replace="fragments/nav :: publicnav"></div>
+    </div>
+    <div th:case="true">
+        <div modelAttribute="user"
+             th:replace="fragments/nav :: privatenav (username=${user.firstName}+' '+${user.lastName}, roles=${user.roles})"></div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 my-3">
+            <div class="card">
+                <div class="card-body">
+                    <h4 th:text="'@'+${otheruser.username}"></h4>
+                    <p th:text="${otheruser.firstName}+' '+${otheruser.lastName}"></p>
+                    <br>
+                    <p th:text="${otheruser.description}"></p>
+
+                        <div th:if="not ${user.id == otheruser.id}">
+                            <div th:switch="${followlist.followCheck(otheruser)}">
+                                <div th:case="false">
+                                    <a class="btn btn-outline-secondary btn-sm" href="#" role="button">Follow</a>
+
+                                </div>
+                                <div th:case="true">
+                                    <a class="btn btn-outline-secondary btn-sm" href="#" role="button">Unfollow</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    <div th:if="${user.id == otheruser.id}">
+                        <a class="btn btn-outline-secondary btn-sm" href="#" role="button">Settings</a>
+                        <a class="btn btn-outline-secondary btn-sm" href="#" role="button">Following</a>
+                    </div>
+
+                    </div>
+
+            </div>
+
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8 my-3">
+            <div modelAttribute="tweet" th:replace="fragments/post :: post (tweet=${tweet})"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-8 my-3">
+            <div modelAttribute="tweets" th:replace="fragments/feed :: feed (tweets=${tweets}, us=${us})"></div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
