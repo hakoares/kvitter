@@ -7,7 +7,9 @@ import java.util.Set;
 
 public interface FollowerListRepository extends JpaRepository<FollowerList, Long> {
 
-    public Set<FollowerList> getAllById(long id);
+
+    public FollowerList findByListid(long id);
+
 
 
 }

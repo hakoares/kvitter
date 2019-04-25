@@ -18,8 +18,12 @@ public class FollowerListService {
         return followerListRepository.save(followerList);
     }
 
-    public Set<FollowerList> findAllById(long id){
-        return followerListRepository.getAllById(id);
+    public FollowerList findAllById(long id){
+        return followerListRepository.findByListid(id);
+    }
+
+    public FollowerList findById(long id) {
+        return followerListRepository.findByListid(id);
     }
 
 }
