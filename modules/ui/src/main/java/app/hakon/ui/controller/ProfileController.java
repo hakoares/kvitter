@@ -58,8 +58,19 @@ public class ProfileController {
     public String follow(@PathVariable("a") String a, @PathVariable("b") String b){
         long listid = Long.parseLong(a);
         long otherid = Long.parseLong(b);
-        System.out.println(listid);
-        System.out.println(otherid);
+
+        followService.follow(listid,otherid);
+
+
+        return "redirect:/profile/"+otherid;
+    }
+
+    @GetMapping("/unfollow/{a}/{b}")
+    public String unFollow(@PathVariable("a") String a, @PathVariable("b") String b){
+        long listid = Long.parseLong(a);
+        long otherid = Long.parseLong(b);
+
+        followService.unFollow(listid,otherid);
 
 
         return "redirect:/profile/"+otherid;

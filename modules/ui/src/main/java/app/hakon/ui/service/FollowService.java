@@ -23,4 +23,12 @@ public class FollowService {
     public String createList(long id){
         return restTemplate.getForObject(BASE_URL + "addlist/"+id, String.class);
     }
+
+    public String follow(long a, long b){
+        return restTemplate.getForObject(BASE_URL + "follow/"+a+"/"+b, String.class);
+    }
+
+    public String unFollow(long a, long b){
+        return restTemplate.getForObject(BASE_URL + "unfollow/"+a+"/"+b, String.class);
+    }
 }

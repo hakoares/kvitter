@@ -34,7 +34,7 @@
 
                                 </div>
                                 <div th:case="true">
-                                    <a class="btn btn-outline-secondary btn-sm" href="#" role="button">Unfollow</a>
+                                    <a class="btn btn-outline-secondary btn-sm" th:href="'/profile/unfollow/'+${user.id}+'/'+${otheruser.id}" role="button">Unfollow</a>
 
                                 </div>
                             </div>
