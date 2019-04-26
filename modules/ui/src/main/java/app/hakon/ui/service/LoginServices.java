@@ -40,5 +40,9 @@ public class LoginServices implements UserDetailsService {
         return passwordEncoder.encode(password);
     }
 
+    public boolean match(String password1, String password2) {
+        return passwordEncoder.matches(password1, password2);
+    }
+
 
 }

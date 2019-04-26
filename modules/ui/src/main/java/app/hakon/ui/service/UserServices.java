@@ -36,6 +36,11 @@ public class UserServices {
         userRepository.save(user);
     }
 
+    public Boolean delete(User user){
+        return userRepository.deleteById(user.getId());
+
+    }
+
     // Check if user already exists.
     public Boolean userExists(String username) {
         if (!userRepository.findUserByUsername(username).isPresent()) {

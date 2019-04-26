@@ -20,23 +20,63 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-8 my-3">
-            <div class="card">
-                <div class="card-body">
-                    <h4 th:text="'@'+${otheruser.username}"></h4>
-                    <p th:text="${otheruser.firstName}+' '+${otheruser.lastName}"></p>
-                    <br>
-                    <p th:text="${otheruser.description}"></p>
-
-
-                    </div>
-
-            </div>
-
+            <h4>Settings</h4>
 
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-8 my-3">
+        <div class="col-sm-8">
+
+            <h5 class="mt-3">Change name</h5>
+            <form th:action="@{/settings/saveprofile}" method="POST">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="name">Name</span>
+                    </div>
+                    <input id="firstname" type="text" name="firstname" class="form-control" th:value="${user.firstName}">
+                    <input id="lastname" type="text" name="lastname" class="form-control" th:value="${user.lastName}">
+                </div>
+
+                <div class="input-groupe">
+                    <h5 class="mt-3" for="description">Change description</h5>
+                    <textarea name="description" th:text="${user.description}" class="form-control" id="description" rows="3"></textarea>
+                </div>
+                <div class="input-group-prepend mt-3">
+                    <button class=" btn btn-outline-secondary btn-sm" type="submit">Save profile</button>
+                </div>
+            </form>
+
+            <h5 class="mt-3">Change password</h5>
+            <form th:action="@{/settings/changepassword}" method="POST">
+                <div class="input-group mb-3 mt-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Old password</span>
+                    </div>
+                    <input  type="password" name="oldPassword" class="form-control" placeholder="Old Password"
+                           aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="oldPasswords">New Password</span>
+                    </div>
+                    <input id="password" type="password" name="newPassword" class="form-control" placeholder="New password">
+                    <input id="passConfirm" type="password" name="newPasswordConfirm" class="form-control" placeholder="Confirm password">
+                </div>
+                <div class="input-group-prepend mt-3">
+                    <button class=" btn btn-outline-secondary btn-sm" type="submit">Save new password</button>
+                </div>
+            </form>
+            <div class="mt-3" th:unless="!${#httpServletRequest.getParameter('error') == ''}">
+                <p>Wrong password</p>
+            </div>
+            <div class="mt-3" th:unless="!${#httpServletRequest.getParameter('saved') == ''}">
+                <p>New password saved</p>
+            </div>
+
+            <h5 class="mt-3">Delete account</h5>
+                <a class="btn btn-outline-danger btn-sm" th:href="@{/settings/delete}" role="button">Delete account</a>
+
+
         </div>
     </div>
 
