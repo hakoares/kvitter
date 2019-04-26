@@ -51,9 +51,11 @@
 
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-8 my-3">
-            <div modelAttribute="tweet" th:replace="fragments/post :: post (tweet=${tweet})"></div>
+    <div th:if="${user.id == otheruser.id}">
+        <div class="row">
+            <div class="col-sm-8 my-3">
+                <div modelAttribute="tweet" th:replace="fragments/post :: post (tweet=${tweet})"></div>
+            </div>
         </div>
     </div>
 

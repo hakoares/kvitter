@@ -47,11 +47,17 @@ public class FollowersController {
                 allTweets.add(t);
             }
         }
-//        Collections.sort(allTweets, new Comparator<Tweet>() {
-//            public int compare(Tweet o1, Tweet o2) {
-//                return o1.getCreatedAt().compareTo(o2.getCreatedAt());
-//            }
-//        });
+
+        for(Tweet t : tweetService.getTweetByUserId(authorize.getUser().get().getId())){
+            allTweets.add(t);
+        }
+
+        // Sorting tweets in order by date
+        Collections.sort(allTweets, new Comparator<Tweet>() {
+            public int compare(Tweet o1, Tweet o2) {
+                return o1.getCreatedAt().compareTo(o2.getCreatedAt());
+            }
+        });
 
         Collections.reverse(allTweets);
 

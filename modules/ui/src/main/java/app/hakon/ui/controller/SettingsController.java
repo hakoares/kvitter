@@ -59,13 +59,14 @@ public class SettingsController {
     }
 
     @PostMapping("/saveprofile")
-    public String saveProfile(@RequestParam(name="firstname") String firstname, @RequestParam(name="lastname") String lastname, @RequestParam(name="description") String description, HttpServletRequest request){
+    public String saveProfile(@RequestParam(name="username") String username, @RequestParam(name="firstname") String firstname, @RequestParam(name="lastname") String lastname, @RequestParam(name="description") String description, HttpServletRequest request){
 
 
         User user = authorize.getUser().get();
         user.setDescription(description);
         user.setFirstName(firstname);
         user.setLastName(lastname);
+        user.setUsername(username);
 
         userServices.save(user);
 

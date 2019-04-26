@@ -27,7 +27,7 @@ public class Authorize {
     private Boolean isAuthorized = false;
 
 
-    // DONE
+    // Check if user is Authorized
     public boolean isAuthorized(Model model) {
         Optional<User> user = getUser();
         if (user.isPresent()) {
@@ -44,20 +44,17 @@ public class Authorize {
         return userServices.findUserById(userid).get().getUsername();
     }
 
-
-
-    // DONE
+    // Returns the signed in user
     public Optional<User> getUser() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        Optional<User> user = userServices.findUserByEmail(auth.getName());
+        Optional<User> user = userServices.findUserByUsername(auth.getName());
         return user;
     }
 
     // DONE     Method for checking if the User is authenticated
     public boolean isAuthorizedByRoles(Roles roles) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        Optional<User> user = userServices.findUserByEmail(auth.getName());
-
+        Optional<User> user = userServices.findUserByUsername(auth.getName());
 
         if (user.get().getRoles() == roles || user.get().getRoles() == Roles.ADMIN) {
             if (user.isPresent()) {

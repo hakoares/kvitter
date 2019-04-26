@@ -30,7 +30,7 @@ public class LoginServices implements UserDetailsService {
 
     public UserDetails getUserDetails(User user) {
         return org.springframework.security.core.userdetails.User.withUsername(user
-                .getEmail())
+                .getUsername())
                 .password(user.getPassword())
                 .roles(user.getRoles().name())
                 .build();
