@@ -4,10 +4,7 @@ package app.hakon.ui.controller;
 import app.hakon.ui.model.Roles;
 import app.hakon.ui.model.Tweet;
 import app.hakon.ui.model.User;
-import app.hakon.ui.service.Authorize;
-import app.hakon.ui.service.LoginServices;
-import app.hakon.ui.service.TweetService;
-import app.hakon.ui.service.UserServices;
+import app.hakon.ui.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,6 +28,9 @@ public class HomeController {
     @Autowired
     TweetService tweetService;
 
+    @Autowired
+    FollowService followService;
+
 
     @GetMapping("/")
     public String getHome(Model model) {
@@ -42,6 +42,7 @@ public class HomeController {
             model.addAttribute("authorize", authorize);
 
             List<Tweet> allTweets = tweetService.getAll();
+            model.addAttribute("us", userServices);
             model.addAttribute("tweets", allTweets);
             return "index";
         }
@@ -62,6 +63,7 @@ public class HomeController {
         if (userServices.validation(user.getFirstName(), user.getLastName(), user.getEmail(), user.getPassword())) {
 
             System.out.println(user.getUsername());
+
             //Check if user exists
             if (userServices.userExists(user.getEmail())) {
                 return "redirect:/signup?error=exists";
@@ -74,7 +76,11 @@ public class HomeController {
                     String Password = loginServices.encodePassword(user.getPassword());
                     user.setPassword(Password);
                     user.setRoles(Roles.USER);
+
+                    // Creates a followerlist in Follow API
+                    followService.createList(user.getId());
                     userServices.save(user);
+
                     return "redirect:/";
                 }
             }

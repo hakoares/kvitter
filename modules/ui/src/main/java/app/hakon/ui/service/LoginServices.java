@@ -30,7 +30,7 @@ public class LoginServices implements UserDetailsService {
 
     public UserDetails getUserDetails(User user) {
         return org.springframework.security.core.userdetails.User.withUsername(user
-                .getEmail())
+                .getUsername())
                 .password(user.getPassword())
                 .roles(user.getRoles().name())
                 .build();
@@ -38,6 +38,10 @@ public class LoginServices implements UserDetailsService {
 
     public String encodePassword(String password) {
         return passwordEncoder.encode(password);
+    }
+
+    public boolean match(String password1, String password2) {
+        return passwordEncoder.matches(password1, password2);
     }
 
 

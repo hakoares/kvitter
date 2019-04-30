@@ -17,16 +17,22 @@ public class UserServices {
     @Autowired
     LoginServices loginServices;
 
-    public Optional<User> findUserByEmail(String email) {
-        return userRepository.findUserByEmail(email);
+
+    public Optional<User> findUserByUsername(String username) {
+        return userRepository.findUserByUsername(username);
     }
 
     public Optional<User> findUserById(long id){
         return userRepository.findById(id);
     }
 
-    public void save(User user) {
-        userRepository.save(user);
+    public User save(User user) {
+        return userRepository.save(user);
+    }
+
+    public Boolean delete(User user){
+        return userRepository.deleteById(user.getId());
+
     }
 
     // Check if user already exists.
@@ -61,6 +67,12 @@ public class UserServices {
         }
         return true;
     }
+
+    // Used to display username in feed
+    public String getUsername(long userid){
+        return findUserById(userid).get().getUsername();
+    }
+
 
 
 }

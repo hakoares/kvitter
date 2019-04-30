@@ -16,11 +16,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.time.ZonedDateTime;
+import java.util.Date;
 
 @Service
 public class FileStorageService {
 
     private final Path fileStorageLocation;
+    private Date date;
 
     @Autowired
     public FileStorageService(FileStorageProperties fileStorageProperties) {
@@ -34,9 +37,20 @@ public class FileStorageService {
         }
     }
 
+    // Converting file name to id based on time
+    public String fileName(){
+        ZonedDateTime zdt = ZonedDateTime.now();
+        date = Date.from(zdt.toInstant());
+
+        return String.valueOf(date.getTime());
+    }
+
+
     public String storeFile(MultipartFile file) {
-        // Normalize file name
-        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+
+        // Set file name
+        String fileName = fileName();
+
 
         try {
             // Check if the file's name contains invalid characters
@@ -53,6 +67,8 @@ public class FileStorageService {
             throw new FileStorageException("Could not store file " + fileName + ". Please try again!", ex);
         }
     }
+
+
 
     public Resource loadFileAsResource(String fileName) {
         try {

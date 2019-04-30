@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class TweetService {
+
     @Autowired
     UserServices userServices;
 
@@ -33,6 +34,11 @@ public class TweetService {
     public Tweet getTweetById(long tweetId){
         return restTemplate.getForObject(BASE_URL+"/"+tweetId, Tweet.class);
     }
+
+    public List<Tweet> getTweetByUserId(long userId){
+        return Arrays.stream(restTemplate.getForObject(BASE_URL+"/user/"+userId, Tweet[].class)).collect(Collectors.toList());
+    }
+
 
 
 

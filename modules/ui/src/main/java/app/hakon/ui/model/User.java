@@ -23,9 +23,6 @@ public class User {
     private URL profilePictureUrl;
     private String description;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "friends")
-    private List<User> friends;
 
     private String password;
     private String email;
@@ -44,7 +41,6 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", profilePictureUrl=" + profilePictureUrl +
                 ", description='" + description + '\'' +
-                ", friends=" + friends +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 '}';

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kvitter - Settings</title>
+</head>
+<head th:replace="fragments/head :: head"></head>
+
+<body>
+
+<div th:switch="${authorize.getIsAuthorized()}">
+    <div th:case="false">
+        <div th:replace="fragments/nav :: publicnav"></div>
+    </div>
+    <div th:case="true">
+        <div modelAttribute="user"
+             th:replace="fragments/nav :: privatenav (username=${user.firstName}+' '+${user.lastName}, roles=${user.roles})"></div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 my-3">
+            <h4>Following</h4>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8">
+
+            <ul class="list-group">
+
+                    <li th:each="follower : ${follows}" class="list-group-item d-flex justify-content-between align-items-center">
+                        <a th:href="'/profile/'+${follower.id}" class="text-dark" th:text="${follower.firstName} + ' ' + ${follower.lastName}"></a>
+                        <span  class="badge badge-secondary">
+                            <a class="text-white" th:href="'/profile/unfollow/'+${user.id}+'/'+${follower.id}" role="button">Unfollow</a>
+                        </span>
+                    </li>
+
+            </ul>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

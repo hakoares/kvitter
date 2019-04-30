@@ -1,6 +1,8 @@
 package app.hakon.ui.model;
 
 import app.hakon.ui.service.UserServices;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
