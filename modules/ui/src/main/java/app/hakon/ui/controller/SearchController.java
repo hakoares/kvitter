@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RequestMapping("/search")
 @Controller
 public class SearchController {
@@ -25,11 +27,11 @@ public class SearchController {
     UserServices userServices;
 
     @GetMapping({"/",""})
-    public String search(@RequestParam("keyword") String keyword, Model model){
+    public String search(@RequestParam("keyword") String keyword, Model model, HttpServletRequest request){
         authorize.isAuthorized(model);
 
         if(keyword.equals("#") || keyword.isEmpty()){
-            return "redirect:/error";
+            return "redirect:"+request.getHeader("Referer");
         } else {
         tweetService.search(keyword, model);
         }
