@@ -39,6 +39,10 @@ public class TweetService {
         return Arrays.stream(restTemplate.getForObject(BASE_URL+"/user/"+userId, Tweet[].class)).collect(Collectors.toList());
     }
 
+    public List<Tweet> search(String keyword){
+        return Arrays.stream(restTemplate.getForObject(BASE_URL+"/search/"+keyword, Tweet[].class)).collect(Collectors.toList());
+    }
+
 
 
 

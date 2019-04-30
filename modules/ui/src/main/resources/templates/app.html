@@ -18,8 +18,8 @@
     </div>
 </div>
 <div class="container">
-    <div class="row">
-        <div class="col-sm-8 my-3">
+    <div class="row" th:unless="${#httpServletRequest.getParameter('keyword')}">
+        <div class="col-sm-8 my-3" >
             <div class="card">
                 <div class="card-body">
                     <form th:action="@{/app/post}" modelAttribute="tweet" method="post" enctype="multipart/form-data">
@@ -37,6 +37,14 @@
             </div>
 
 
+        </div>
+    </div>
+
+    <div class="row" th:unless="!${#httpServletRequest.getParameter('keyword')}">
+        <div class="col-sm-8 my-3">
+            <div class="mt-3">
+                <H1>Searched for: <span th:text="${keyword}"></span></H1>
+            </div>
         </div>
     </div>
 

@@ -64,6 +64,22 @@ public class AppController {
 
     }
 
+    @GetMapping("/search")
+    public String search(@RequestParam("keyword") String keyword, Model model){
+        authorize.isAuthorized(model);
+
+        System.out.println(keyword);
+
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("authorize", authorize);
+        model.addAttribute("us", userServices);
+        model.addAttribute("tweet", new Tweet());
+        model.addAttribute("tweets", tweetService.search(keyword));
+
+        return "app";
+
+    }
+
     @GetMapping("/retweet/{tweetId}")
     public String retweet(@PathVariable(name="tweetId") long tweetId){
         User user = authorize.getUser().get();

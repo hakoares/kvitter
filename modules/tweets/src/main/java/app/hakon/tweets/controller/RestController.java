@@ -30,6 +30,12 @@ public class RestController {
         return tweetService.getTweetById(tweetId);
     }
 
+    @GetMapping("/tweets/search/{keyword}")
+    public List<Tweet> search(@PathVariable String keyword){
+
+        return tweetService.search(keyword);
+    }
+
     @GetMapping("/tweets/user/{id}")
     public List<Tweet> getTweetByUser(@PathVariable String id){
         long userId = Long.parseLong(id);

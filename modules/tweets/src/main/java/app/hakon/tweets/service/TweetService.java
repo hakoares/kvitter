@@ -22,7 +22,7 @@ public class TweetService {
     }
 
     public List<Tweet> getAllByUserId(long userID){
-        return tweetRepository.getAllByUserId(userID);
+        return tweetRepository.getAllByUserIdOrderByCreatedAtDesc(userID);
     }
 
     public void save(Tweet tweet){
@@ -39,6 +39,10 @@ public class TweetService {
 
     public void deleteById(long id){
         tweetRepository.deleteById(id);
+    }
+
+    public List<Tweet> search(String keyword) {
+        return tweetRepository.findAllByMessageContainsOrderByCreatedAtDesc(keyword);
     }
 
 

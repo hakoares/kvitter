@@ -9,10 +9,12 @@ public interface TweetRepository extends JpaRepository<Tweet, Long> {
 
     public List<Tweet> findAllByOrderByCreatedAtDesc();
 
-    public List<Tweet> getAllByUserId(long userId);
+    public List<Tweet> getAllByUserIdOrderByCreatedAtDesc(long userId);
 
     public void deleteById(long id);
 
     public Tweet getTweetById(long id);
+
+    public List<Tweet> findAllByMessageContainsOrderByCreatedAtDesc(String keyword);
 
 }
