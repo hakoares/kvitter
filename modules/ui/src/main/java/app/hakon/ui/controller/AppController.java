@@ -17,7 +17,10 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @RequestMapping("/app")
 @Controller
@@ -64,21 +67,6 @@ public class AppController {
 
     }
 
-    @GetMapping("/search")
-    public String search(@RequestParam("keyword") String keyword, Model model){
-        authorize.isAuthorized(model);
-
-        System.out.println(keyword);
-
-        model.addAttribute("keyword", keyword);
-        model.addAttribute("authorize", authorize);
-        model.addAttribute("us", userServices);
-        model.addAttribute("tweet", new Tweet());
-        model.addAttribute("tweets", tweetService.search(keyword));
-
-        return "app";
-
-    }
 
     @GetMapping("/retweet/{tweetId}")
     public String retweet(@PathVariable(name="tweetId") long tweetId){
