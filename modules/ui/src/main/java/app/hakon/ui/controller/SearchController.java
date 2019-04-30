@@ -28,8 +28,11 @@ public class SearchController {
     public String search(@RequestParam("keyword") String keyword, Model model){
         authorize.isAuthorized(model);
 
-
+        if(keyword.equals("#") || keyword.isEmpty()){
+            return "redirect:/error";
+        } else {
         tweetService.search(keyword, model);
+        }
 
 
         model.addAttribute("keyword", keyword);
