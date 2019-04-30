@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 @RequestMapping("/app")
@@ -54,7 +56,8 @@ public class AppController {
         User user = authorize.getUser().get();
         Tweet tweetToSave = new Tweet(tweet.getMessage(), tweet.getImageUrl(), user.getId());
 
-//        uploadService.save(imagefile);
+        uploadService.save(tweetToSave, imagefile);
+
 
         tweetService.save(tweetToSave);
         return "redirect:/app";

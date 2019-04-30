@@ -74,8 +74,7 @@ public class FollowersController {
         User user = authorize.getUser().get();
         Tweet tweetToSave = new Tweet(tweet.getMessage(), tweet.getImageUrl(), user.getId());
 
-//        uploadService.save(imagefile);
-
+        uploadService.save(tweetToSave, imagefile);
 
         tweetService.save(tweetToSave);
         return "redirect:/followers";

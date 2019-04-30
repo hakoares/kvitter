@@ -34,21 +34,8 @@ public class FileController {
     FileStorageService fileStorageService;
 
 
-    // TODO: 2019-04-23
-    public String fileName(){
-
-        ZonedDateTime zdt = ZonedDateTime.now();
-        double fn = Math.random() * zdt.getSecond() * 10;
-        return String.valueOf(fn);
-    }
-
-
-
-
     @PostMapping("/img")
     public String uploadFile(@RequestParam("file") MultipartFile file) {
-
-        System.out.println(file.getContentType());
 
         if(file.getContentType().contains(ImgTypes.gif) || file.getContentType().contains(ImgTypes.png) || file.getContentType().contains(ImgTypes.jpg)){
             String fileName = fileStorageService.storeFile(file);
@@ -57,7 +44,6 @@ public class FileController {
                     .path("/img/")
                     .path(fileName)
                     .toUriString();
-
             return fileDownloadUri;
         }
 
