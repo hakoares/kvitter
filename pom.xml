@@ -10,6 +10,10 @@
 
     <modules>
         <module>modules/ui</module>
+        <module>modules/upload</module>
+        <module>modules/follow</module>
+        <module>modules/tweets</module>
+
     </modules>
 
 
