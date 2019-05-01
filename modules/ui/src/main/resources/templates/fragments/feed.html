@@ -21,10 +21,10 @@
         <div th:if="${tweet.hasRetweet()} == true">
             <div class="card">
                 <div class="card-body">
-                    <small class="card-title" style='display:inline'><a class="text-dark" style='display:inline' th:href="'profile/'+${tweet.getUsername()}" th:text="'@'+${us.getUsername(tweet.userId)}+' retweeted'"></a></small>
+                    <small class="card-title" style='display:inline'><a class="text-dark" style='display:inline' th:href="@{/profile/}+${tweet.getUsername()}" th:text="'@'+${us.getUsername(tweet.userId)}+' retweeted'"></a></small>
                     <div class="card mt-3">
                         <div class="card-body">
-                            <h5 class="card-title" style='display:inline'><a class="text-dark" style='display:inline' th:href="${tweet.retweet.getUsername()}" th:text="'@'+${us.getUsername(tweet.retweet.userId)}"></a></h5>
+                            <h5 class="card-title" style='display:inline'><a class="text-dark" style='display:inline' th:href="@{/profile/}+${tweet.retweet.getUsername()}" th:text="'@'+${us.getUsername(tweet.retweet.userId)}"></a></h5>
                             <small style='display:inline' th:text="'  •  '+${tweet.retweet.tweetDate()}"></small>
                             <p class="card-text" th:text="${tweet.retweet.message}"></p>
                             <a th:href="@{/followers/retweet/}+${tweet.retweet.id}" class="btn btn-outline-secondary btn-sm">Retweet</a>
