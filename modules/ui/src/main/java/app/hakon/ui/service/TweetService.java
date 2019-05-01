@@ -22,7 +22,7 @@ public class TweetService {
     UserServices userServices;
 
 
-    String BASE_URL = "http://localhost:8090/tweets";
+    String BASE_URL = "http://134.209.232.95:8090/tweets";
     private RestTemplate restTemplate = new RestTemplate();
 
     public List<Tweet> getAll() {
