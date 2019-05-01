@@ -41,9 +41,8 @@ public class HomeController {
             authorize.isAuthorized(model);
             model.addAttribute("authorize", authorize);
 
-            List<Tweet> allTweets = tweetService.getAll();
             model.addAttribute("us", userServices);
-            model.addAttribute("tweets", allTweets);
+            model.addAttribute("tweets", tweetService.getAll());
             return "index";
         }
     }

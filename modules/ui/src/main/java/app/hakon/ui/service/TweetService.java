@@ -40,6 +40,7 @@ public class TweetService {
 
     public List<Tweet> getTweetByUserId(long userId){
         return Arrays.stream(restTemplate.getForObject(BASE_URL+"/user/"+userId, Tweet[].class)).collect(Collectors.toList());
+
     }
 
     public List<Tweet> tweetsBySearchTerm(String searchTerm){

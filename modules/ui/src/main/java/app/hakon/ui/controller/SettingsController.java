@@ -27,13 +27,12 @@ public class SettingsController {
     @Autowired
     LoginServices loginServices;
 
-    // TODO: 2019-04-25
     @GetMapping("")
     public String ViewSettings(Model model){
         authorize.isAuthorized(model);
 
 
-        model.addAttribute("otheruser", authorize.getUser().get());
+        model.addAttribute("usertoedit", authorize.getUser().get());
         model.addAttribute("authorize", authorize);
         model.addAttribute("us", userServices);
         return "settings";
@@ -59,10 +58,9 @@ public class SettingsController {
     }
 
     @PostMapping("/saveprofile")
-    public String saveProfile(@RequestParam(name="username") String username, @RequestParam(name="firstname") String firstname, @RequestParam(name="lastname") String lastname, @RequestParam(name="description") String description, HttpServletRequest request){
+    public String saveProfile(@ModelAttribute("usertoedit") User user, @RequestParam(name="username") String username, @RequestParam(name="firstname") String firstname, @RequestParam(name="lastname") String lastname, @RequestParam(name="description") String description, HttpServletRequest request){
 
-
-        User user = authorize.getUser().get();
+        user.setId(user.getId());
         user.setDescription(description);
         user.setFirstName(firstname);
         user.setLastName(lastname);
