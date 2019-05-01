@@ -61,8 +61,6 @@ public class HomeController {
     public String register(@ModelAttribute("user") User user, @RequestParam(name = "passConfirm") String passConfirm) {
         if (userServices.validation(user.getFirstName(), user.getLastName(), user.getEmail(), user.getPassword())) {
 
-            System.out.println(user.getUsername());
-
             //Check if user exists
             if (userServices.userExists(user.getEmail())) {
                 return "redirect:/signup?error=exists";

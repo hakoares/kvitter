@@ -6,7 +6,7 @@
         <div th:if="${tweet.hasRetweet()} == false">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title" style='display:inline'><a class="text-dark" style='display:inline' th:href="'profile/'+${tweet.getUsername()}" th:text="'@'+${us.getUsername(tweet.userId)}"></a></h5>
+                    <h5 class="card-title" style='display:inline'><a class="text-dark" style='display:inline' th:href="@{/profile/}+${tweet.getUsername()}" th:text="'@'+${us.getUsername(tweet.userId)}"></a></h5>
                     <small style='display:inline' th:text="'  •  '+${tweet.tweetDate()}"></small>
                     <p class="card-text" th:text="${tweet.message}"></p>
                     <a th:href="@{/followers/retweet/}+${tweet.id}" class="btn btn-outline-secondary btn-sm">Retweet</a>

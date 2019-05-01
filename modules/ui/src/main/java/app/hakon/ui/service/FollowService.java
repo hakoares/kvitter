@@ -1,13 +1,10 @@
 package app.hakon.ui.service;
 
 import app.hakon.ui.model.FollowerList;
-import app.hakon.ui.model.Tweet;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+
 
 @Service
 public class FollowService {
@@ -31,4 +28,9 @@ public class FollowService {
     public String unFollow(long a, long b){
         return restTemplate.getForObject(BASE_URL + "unfollow/"+a+"/"+b, String.class);
     }
+
+    public void delete(long a){
+        restTemplate.delete(BASE_URL+"delete/"+a);
+    }
+
 }

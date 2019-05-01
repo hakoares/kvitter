@@ -43,6 +43,10 @@ public class TweetService {
 
     }
 
+    public void delete(Tweet tweet) {
+        restTemplate.delete(BASE_URL+"delete/"+tweet.getId());
+    }
+
     public List<Tweet> tweetsBySearchTerm(String searchTerm){
         return Arrays.stream(restTemplate.getForObject(BASE_URL+"/search/"+searchTerm, Tweet[].class)).collect(Collectors.toList());
     }
@@ -78,13 +82,7 @@ public class TweetService {
 
             }
 
-
-
         }
     }
-
-
-
-
 
 }

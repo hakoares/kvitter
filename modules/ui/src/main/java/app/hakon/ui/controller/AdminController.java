@@ -2,6 +2,7 @@ package app.hakon.ui.controller;
 
 import app.hakon.ui.model.User;
 import app.hakon.ui.service.Authorize;
+import app.hakon.ui.service.DeleteService;
 import app.hakon.ui.service.LoginServices;
 import app.hakon.ui.service.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ public class AdminController {
 
     @Autowired
     LoginServices loginServices;
+
+    @Autowired
+    DeleteService deleteService;
 
     @GetMapping({"/",""})
     public String home(Model model) {
@@ -71,7 +75,7 @@ public class AdminController {
     public String deleteAccount(@PathVariable String userid){
         long id = Long.parseLong(userid);
 
-        userServices.delete(userServices.findUserById(id).get());
+        deleteService.delete(userServices.findUserById(id).get());
 
         return "redirect:/admin";
     }

@@ -5,6 +5,7 @@ import app.hakon.follow.module.FollowerList;
 import app.hakon.follow.service.FollowerListService;
 import app.hakon.follow.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -67,7 +68,7 @@ public class RestController {
         return "FollowUser " + listid + " do not follow user " + otherid + " any more";
     }
 
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteList(@PathVariable String id) {
         long listid = Long.parseLong(id);
 
