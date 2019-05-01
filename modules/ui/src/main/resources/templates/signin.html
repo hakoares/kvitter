@@ -8,43 +8,48 @@
 <body>
 <div th:replace="fragments/nav :: publicnav"></div>
 <div class="container">
-    <div class="col-sm-6 my-3 ">
-        <form th:action="@{/login}" method="POST">
-            <h4 class="text">Sign in</h4>
+    <div class="row">
+        <div class="col-sm-3"></div>
 
-            <div class="mt-3" th:unless="!${#httpServletRequest.getParameter('error') == 'unauthorised'}">
-                <p>You are not authorised for this page. Log in as ADMIN.</p>
-            </div>
+        <div class="col-sm-6 my-3 ">
+            <form th:action="@{/login}" method="POST">
+                <h4 class="text">Sign in</h4>
 
-            <div class="input-group mb-3 mt-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">@</span>
+                <div class="mt-3" th:unless="!${#httpServletRequest.getParameter('error') == 'unauthorised'}">
+                    <p>You are not authorised for this page. Log in as ADMIN.</p>
                 </div>
-                <input type="text" name="username" class="form-control" placeholder="Username" aria-label="Username"
-                       aria-describedby="basic-addon1">
-            </div>
 
-            <div class="input-group mb-3 mt-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">Password</span>
+                <div class="input-group mb-3 mt-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                    </div>
+                    <input type="text" name="username" class="form-control" placeholder="Username" aria-label="Username"
+                           aria-describedby="basic-addon1">
                 </div>
-                <input type="password" name="password" class="form-control" placeholder="Password" aria-label="password"
-                       aria-describedby="basic-addon1">
-            </div>
 
-            <button class="btn btn-outline-secondary btn-sm" type="submit">Sign in</button>
-            <a class="btn btn-outline-secondary btn-sm" th:href="@{/signup}" role="button">Create a new account</a>
+                <div class="input-group mb-3 mt-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Password</span>
+                    </div>
+                    <input type="password" name="password" class="form-control" placeholder="Password" aria-label="password"
+                           aria-describedby="basic-addon1">
+                </div>
+
+                <button class="btn btn-outline-secondary btn-sm" type="submit">Sign in</button>
+                <a class="btn btn-outline-secondary btn-sm" th:href="@{/signup}" role="button">Create a new account</a>
 
 
-            <div class="mt-3" th:unless="!${#httpServletRequest.getParameter('error') == ''}">
-                <p>Wrong username or password</p>
-            </div>
+                <div class="mt-3" th:unless="!${#httpServletRequest.getParameter('error') == ''}">
+                    <p>Wrong username or password</p>
+                </div>
+    
 
+            </form>
+        </div>
+        <div class="col-sm-3"></div>
 
-        </form>
     </div>
 </div>
-
 
 </body>
 </html>

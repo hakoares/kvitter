@@ -8,72 +8,80 @@
 <body>
 <div th:replace="fragments/nav :: publicnav"></div>
 <div class="container">
-    <div class="col-sm-6 my-3">
-        <h4 class="text">Sign up</h4>
-        <form th:action="@{/processRegistration}" modelAttribute="user" method="post">
+    <div class="row">
+        <div class="col-lg-2 my-3">
 
-            <div class="input-group mb-3 mt-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">@</span>
+        </div>
+        <div class="col-lg-8 my-3">
+            <h4 class="text">Sign up</h4>
+            <form th:action="@{/processRegistration}" modelAttribute="user" method="post">
+
+                <div class="input-group mb-3 mt-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                    </div>
+                    <input type="text" name="username" class="form-control" placeholder="Username" aria-label="Username"
+                           aria-describedby="basic-addon1">
                 </div>
-                <input type="text" name="username" class="form-control" placeholder="Username" aria-label="Username"
-                       aria-describedby="basic-addon1">
-            </div>
 
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="firstandlastname">First and last name</span>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="firstandlastname">First and last name</span>
+                    </div>
+                    <input type="text" name="firstName" class="form-control">
+                    <input type="text" name="lastName" class="form-control">
                 </div>
-                <input type="text" name="firstName" class="form-control">
-                <input type="text" name="lastName" class="form-control">
-            </div>
 
-            <div class="input-group mb-3 mt-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">E-mail</span>
+                <div class="input-group mb-3 mt-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">E-mail</span>
+                    </div>
+                    <input type="text" name="email" class="form-control" placeholder="E-mail" aria-label="email"
+                           aria-describedby="basic-addon1">
                 </div>
-                <input type="text" name="email" class="form-control" placeholder="E-mail" aria-label="email"
-                       aria-describedby="basic-addon1">
-            </div>
 
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="passwords">Password</span>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="passwords">Password</span>
+                    </div>
+                    <input id="password" type="password" name="password" class="form-control">
+                    <input id="passConfirm" type="password" name="passConfirm" class="form-control">
                 </div>
-                <input id="password" type="password" name="password" class="form-control">
-                <input id="passConfirm" type="password" name="passConfirm" class="form-control">
-            </div>
 
 
-            <div class="input-group mb-3 mt-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Upload profile picture</span>
+                <div class="input-group mb-3 mt-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Upload profile picture</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="inputGroupFile01">
+                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    </div>
                 </div>
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="inputGroupFile01">
-                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+
+
+                <!--Error feedback to user-->
+                <div class="mt-3" th:unless="!${#httpServletRequest.getParameter('error') == 'exists'}">
+                    <p>User already exists</p>
                 </div>
-            </div>
+
+                <div class="mt-3" th:unless="!${#httpServletRequest.getParameter('error') == 'mismatch'}">
+                    <p>Those passwords didn't match. Try again.</p>
+                </div>
+
+                <div class="mt-3" th:unless="!${#httpServletRequest.getParameter('error') == 'nodata'}">
+                    <p>You forgot some fields. Start over.</p>
+                </div>
 
 
-            <!--Error feedback to user-->
-            <div class="mt-3" th:unless="!${#httpServletRequest.getParameter('error') == 'exists'}">
-                <p>User already exists</p>
-            </div>
+                <button class="btn btn-outline-secondary btn-sm">Save</button>
 
-            <div class="mt-3" th:unless="!${#httpServletRequest.getParameter('error') == 'mismatch'}">
-                <p>Those passwords didn't match. Try again.</p>
-            </div>
+            </form>
 
-            <div class="mt-3" th:unless="!${#httpServletRequest.getParameter('error') == 'nodata'}">
-                <p>You forgot some fields. Start over.</p>
-            </div>
+        </div>
+        <div class="col-lg-2 my-3">
 
-
-            <button class="btn btn-success">Save</button>
-
-        </form>
-
+        </div>
     </div>
 </div>
 

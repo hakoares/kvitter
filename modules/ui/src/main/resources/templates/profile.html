@@ -19,6 +19,8 @@
 </div>
 <div class="container">
     <div class="row">
+        <div class="col-sm-2"></div>
+
         <div class="col-sm-8 my-3">
             <div class="card">
                 <div class="card-body">
@@ -50,20 +52,30 @@
 
 
         </div>
+        <div class="col-sm-2"></div>
+
     </div>
     <div th:if="${user.id == otheruser.id}">
         <div class="row">
+            <div class="col-sm-2"></div>
+
             <div class="col-sm-8 my-3">
                 <div modelAttribute="tweet" th:replace="fragments/post :: post (tweet=${tweet})"></div>
             </div>
+            <div class="col-sm-2"></div>
+
         </div>
     </div>
 
     <div class="row">
+        <div class="col-sm-2"></div>
+
         <div class="col-sm-8 my-3">
             <div modelAttribute="tweets" th:replace="fragments/feed :: feed (tweets=${tweets}, us=${us})"></div>
 
         </div>
+        <div class="col-sm-2"></div>
+
     </div>
 </div>
 </body>

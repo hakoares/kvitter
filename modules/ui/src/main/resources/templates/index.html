@@ -20,12 +20,14 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-8 my-3">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 mt-3">
 
             <div modelAttribute="tweets" th:replace="fragments/feed :: feed (tweets=${tweets}, us=${us})"></div>
 
 
         </div>
+        <div class="col-sm-2"></div>
     </div>
 </div>
 </body>

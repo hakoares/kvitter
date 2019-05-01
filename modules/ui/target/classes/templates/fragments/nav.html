@@ -2,7 +2,7 @@
 
 <div th:fragment="privatenav (username, roles)">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand">Kvitter</a>
+        <a class="navbar-brand" th:href="@{/}">Kvitter</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -44,7 +44,7 @@
 <!--Nav when not signed in-->
 <div th:fragment="publicnav">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand">Kvitter</a>
+        <a class="navbar-brand" th:href="@{/}">Kvitter</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
