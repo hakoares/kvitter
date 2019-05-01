@@ -17,7 +17,10 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @RequestMapping("/app")
 @Controller
@@ -63,6 +66,7 @@ public class AppController {
         return "redirect:/app";
 
     }
+
 
     @GetMapping("/retweet/{tweetId}")
     public String retweet(@PathVariable(name="tweetId") long tweetId){

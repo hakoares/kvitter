@@ -52,6 +52,7 @@ public class FollowersController {
             allTweets.add(t);
         }
 
+
         // Sorting tweets in order by date
         Collections.sort(allTweets, new Comparator<Tweet>() {
             public int compare(Tweet o1, Tweet o2) {

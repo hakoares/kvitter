@@ -49,7 +49,7 @@ public class ProfileController {
 
 
         List<Tweet> allTweets = tweetService.getTweetByUserId(userid);
-        Collections.reverse(allTweets);
+//        Collections.reverse(allTweets);
 
         model.addAttribute("us", userServices);
         model.addAttribute("followlist", followService.getById(authorize.getUser().get().getId()));

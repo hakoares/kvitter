@@ -22,18 +22,20 @@
                 <!--Only available when role is ADMIN -->
                 <div th:switch="${roles.name()}">
                     <li th:case="'ADMIN'" class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="/admin">Admin</a>
                     </li>
                 </div>
 
             </ul>
 
+            <form class="form-inline my-2 my-lg-0 mr-3" th:action="@{/search}">
+                <input class="form-control mr-sm-2" name="keyword" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search in all tweets</button>
+            </form>
+
             <i class="far fa-user mr-2"></i>
             <a class="text-muted mr-3" th:href="'/profile/'+${user.id}" th:text="${username}"></a>
             <a class="text-muted" href="/logout">Log out</a>
-
-
-<!--            <span class="navbar-text" th:text="${username}"></span>-->
 
         </div>
     </nav>

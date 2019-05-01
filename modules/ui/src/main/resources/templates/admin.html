@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kvitter - Admin</title>
+</head>
+<head th:replace="fragments/head :: head"></head>
+
+<body>
+
+<div th:switch="${authorize.getIsAuthorized()}">
+    <div th:case="false">
+        <div th:replace="fragments/nav :: publicnav"></div>
+    </div>
+    <div th:case="true">
+        <div modelAttribute="user"
+             th:replace="fragments/nav :: privatenav (username=${user.firstName}+' '+${user.lastName}, roles=${user.roles})"></div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 mt-3">
+            <h4>Admin</h4>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8">
+            <ul class="list-group">
+
+                <li th:each="u : ${allusers}" class="list-group-item d-flex justify-content-between align-items-center">
+                    <a th:href="'/profile/'+${u.id}" class="text-dark" th:text="${u.firstName} + ' ' + ${u.lastName}"></a>
+                    <span  class="badge badge-secondary">
+                        <a class="text-white" th:href="'/profile/'+${u.id}" role="button">View</a>
+                    </span>
+                    <span  class="badge badge-secondary">
+                        <a class="text-white" th:href="'/admin/edit/'+${u.id}" role="button">Edit user</a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
