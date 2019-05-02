@@ -18,8 +18,6 @@ import java.util.Date;
 public class Tweet {
 
     private long id;
-
-    @Max(value = 140, message = "Max 140 chars.")
     private String message;
     private Date createdAt;
     private URL imageUrl;
