@@ -18,6 +18,8 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.ZonedDateTime;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service
 public class FileStorageService {
@@ -38,19 +40,31 @@ public class FileStorageService {
     }
 
     // Converting file name to id based on time
-    public String fileName(){
+    public String fileName(MultipartFile file){
+
+        // Generating random filename based on time
         ZonedDateTime zdt = ZonedDateTime.now();
         date = Date.from(zdt.toInstant());
+        String filename = String.valueOf(date.getTime());
+        String fileEnding = file.getOriginalFilename();
 
-        return String.valueOf(date.getTime());
+        // Regex to get the file ending
+        String regex = "[.]{1}[\\w]{3,4}";
+        Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
+        Matcher matcher = pattern.matcher(fileEnding);
+
+        if (matcher.find()) {
+           fileEnding = matcher.group(0);
+        }
+
+        return filename+fileEnding;
     }
 
 
     public String storeFile(MultipartFile file) {
 
         // Set file name
-        String fileName = fileName();
-
+        String fileName = fileName(file);
 
         try {
             // Check if the file's name contains invalid characters
