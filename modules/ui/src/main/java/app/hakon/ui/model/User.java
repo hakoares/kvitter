@@ -20,7 +20,6 @@ public class User {
     private String firstName;
     private String lastName;
     private Roles roles;
-    private URL profilePictureUrl;
     private String description;
 
 
@@ -39,7 +38,6 @@ public class User {
                 ", username='" + username + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", profilePictureUrl=" + profilePictureUrl +
                 ", description='" + description + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
