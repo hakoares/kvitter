@@ -21,6 +21,8 @@ import java.util.Collections;
 public class UploadService {
 
     String BASE_URL = "http://134.209.232.95:9000/img";
+//    String BASE_URL = "http://localhost:9000/img";
+
     private RestTemplate restTemplate = new RestTemplate();
 
 

@@ -10,6 +10,8 @@ import org.springframework.web.client.RestTemplate;
 public class FollowService {
 
     String BASE_URL = "http://134.209.232.95:9090/";
+//        String BASE_URL = "http://localhost:9090/";
+
     private RestTemplate restTemplate = new RestTemplate();
 
     public FollowerList getById(long id) {

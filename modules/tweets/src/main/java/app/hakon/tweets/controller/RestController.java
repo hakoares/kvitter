@@ -20,7 +20,6 @@ public class RestController {
     @GetMapping("/tweets")
     public List<Tweet> getAllTweets(){
         List<Tweet> tweets = tweetService.findAllOrdered();
-//        Collections.reverse(tweets);
         return tweets;
     }
 
