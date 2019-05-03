@@ -1,5 +1,6 @@
 package app.hakon.ui.controller;
 
+import app.hakon.ui.model.Roles;
 import app.hakon.ui.model.User;
 import app.hakon.ui.service.Authorize;
 import app.hakon.ui.service.DeleteService;
@@ -31,53 +32,71 @@ public class AdminController {
 
     @GetMapping({"/",""})
     public String home(Model model) {
-        authorize.isAuthorized(model);
+        if(authorize.isAuthorizedByRoles(Roles.ADMIN)) {
+            authorize.isAuthorized(model);
 
+            model.addAttribute("allusers", userServices.getAllUser());
+            model.addAttribute("authorize", authorize);
+            return "admin";
+        } else {
+            return "redirect:/";
+        }
 
-        model.addAttribute("allusers", userServices.getAllUser());
-        model.addAttribute("authorize", authorize);
-        return "admin";
     }
 
     @GetMapping("/edit/{userid}")
     public String editUser(Model model, @PathVariable String userid) {
+        if(authorize.isAuthorizedByRoles(Roles.ADMIN)) {
 
-        User user = userServices.findUserById(Long.parseLong(userid)).get();
+            User user = userServices.findUserById(Long.parseLong(userid)).get();
 
-        authorize.isAuthorized(model);
-
-
-        model.addAttribute("usertoedit", user);
-        model.addAttribute("authorize", authorize);
-        model.addAttribute("us", userServices);
+            authorize.isAuthorized(model);
 
 
-        return "adminsettings";
+            model.addAttribute("usertoedit", user);
+            model.addAttribute("authorize", authorize);
+            model.addAttribute("us", userServices);
+
+
+            return "adminsettings";
+        } else {
+            return "redirect:/";
+        }
     }
 
     @PostMapping("/changepassword")
     public String changePassword(@RequestParam(name="id") String userid, @RequestParam(name="newPassword") String newPassword, @RequestParam(name="newPasswordConfirm") String newPasswordConfirm, HttpServletRequest request){
-        long id = Long.parseLong(userid);
 
-        User user = userServices.findUserById(id).get();
+        if(authorize.isAuthorizedByRoles(Roles.ADMIN)) {
 
-         if(userServices.passwordMatch(newPassword, newPasswordConfirm)){
+            long id = Long.parseLong(userid);
+
+            User user = userServices.findUserById(id).get();
+
+            if (userServices.passwordMatch(newPassword, newPasswordConfirm)) {
                 user.setPassword(loginServices.encodePassword(newPassword));
                 userServices.save(user);
 
             }
 
-        return "redirect:"+request.getHeader("Referer")+"?saved";
-
+            return "redirect:" + request.getHeader("Referer") + "?saved";
+        } else {
+            return "redirect:/";
+        }
     }
 
     @GetMapping("/delete/{userid}")
     public String deleteAccount(@PathVariable String userid){
-        long id = Long.parseLong(userid);
+        if(authorize.isAuthorizedByRoles(Roles.ADMIN)) {
 
-        deleteService.delete(userServices.findUserById(id).get());
+            long id = Long.parseLong(userid);
 
-        return "redirect:/admin";
+            deleteService.delete(userServices.findUserById(id).get());
+
+            return "redirect:/admin";
+        } else {
+            return "redirect:/";
+        }
     }
 
 
