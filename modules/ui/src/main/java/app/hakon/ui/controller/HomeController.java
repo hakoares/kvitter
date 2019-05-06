@@ -57,6 +57,15 @@ public class HomeController {
         return "signup";
     }
 
+    // Set IsAuthorized to false
+    @GetMapping("/logoutsuccess")
+    public String logout(Model model) {
+
+        authorize.setIsAuthorized(false);
+
+        return "redirect:/";
+    }
+
     @PostMapping("/processRegistration")
     public String register(@ModelAttribute("user") User user, @RequestParam(name = "passConfirm") String passConfirm) {
         if (userServices.validation(user.getFirstName(), user.getLastName(), user.getEmail(), user.getPassword())) {
